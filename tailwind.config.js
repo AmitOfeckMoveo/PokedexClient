@@ -26,7 +26,6 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          // Design system primary palette
           50: "#EBEFF6",
           100: "#B1BDDB",
           200: "#627BB8",
@@ -58,7 +57,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Design system palette
         neutrals: {
           white: "#FFFFFF",
           100: "#F2F5F7",
