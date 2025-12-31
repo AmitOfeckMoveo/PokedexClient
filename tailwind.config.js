@@ -83,9 +83,9 @@ export default {
             hover: "#EEA7CC",
           },
         },
-        successGreen: "#51FF4E",
-        warningYellow: "#FFF94E",
-        errorRed: "#FF3131",
+        "success-green": "#51FF4E",
+        "warning-yellow": "#FFF94E",
+        "error-red": "#FF3131",
         gradient: {
           default: "linear-gradient(to right, #5BE2F7, #50DDA0)",
           disabled: "linear-gradient(to right, #5BE2F7, #50DDA0)",
