@@ -26,6 +26,13 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          // Design system primary palette
+          50: "#EBEFF6",
+          100: "#B1BDDB",
+          200: "#627BB8",
+          300: "#3B5AA6",
+          400: "#293F74",
+          500: "#182442",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -51,6 +58,48 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Design system palette
+        neutrals: {
+          white: "#FFFFFF",
+          100: "#F2F5F7",
+          200: "#A8AEB5",
+          300: "#5A6066",
+          400: "#44484C",
+          500: "#2D3033",
+        },
+        extended: {
+          purple: {
+            DEFAULT: "#A88FEF",
+            hover: "#C0B0F2",
+          },
+          lightgreen: {
+            DEFAULT: "#A7EF8F",
+            hover: "#C2EFB8",
+          },
+          yellow: {
+            DEFAULT: "#EAEB8F",
+            hover: "#EBEABD",
+          },
+          pink: {
+            DEFAULT: "#EF8FBD",
+            hover: "#EEA7CC",
+          },
+        },
+        state: {
+          success: "#51FF4E",
+          warning: "#FFF94E",
+          error: "#FF3131",
+        },
+        gradient: {
+          default: "linear-gradient(to right, #5BE2F7, #50DDA0)",
+          disabled: "linear-gradient(to right, #5BE2F7, #50DDA0)",
+          fainted: "linear-gradient(to right, #F75B5B, #DD7160)",
+        },
+      },
+      backgroundImage: {
+        "gradient-default": "linear-gradient(to right, #5BE2F7, #50DDA0)",
+        "gradient-disabled": "linear-gradient(to right, #5BE2F7, #50DDA0)",
+        "gradient-fainted": "linear-gradient(to right, #F75B5B, #DD7160)",
       },
       borderRadius: {
         lg: "var(--radius)",
