@@ -76,28 +76,26 @@ export default {
           },
           yellow: {
             DEFAULT: "#EAEB8F",
-            hover: "#EBEABD",
+            hover: "#EBEFBD",
           },
           pink: {
             DEFAULT: "#EF8FBD",
             hover: "#EEA7CC",
           },
         },
-        state: {
-          success: "#51FF4E",
-          warning: "#FFF94E",
-          error: "#FF3131",
-        },
+        successGreen: "#51FF4E",
+        warningYellow: "#FFF94E",
+        errorRed: "#FF3131",
         gradient: {
           default: "linear-gradient(to right, #5BE2F7, #50DDA0)",
           disabled: "linear-gradient(to right, #5BE2F7, #50DDA0)",
-          fainted: "linear-gradient(to right, #F75B5B, #DD7160)",
+          fainted: "linear-gradient(to right, #F75B5B, #DD7150)",
         },
       },
       backgroundImage: {
         "gradient-default": "linear-gradient(to right, #5BE2F7, #50DDA0)",
         "gradient-disabled": "linear-gradient(to right, #5BE2F7, #50DDA0)",
-        "gradient-fainted": "linear-gradient(to right, #F75B5B, #DD7160)",
+        "gradient-fainted": "linear-gradient(to right, #F75B5B, #DD7150)",
       },
       borderRadius: {
         lg: "var(--radius)",
