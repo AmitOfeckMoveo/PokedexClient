@@ -17,6 +17,25 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        mulish: ["Mulish", "sans-serif"],
+      },
+      fontSize: {
+        "heading-xlarge": ["28px", { lineHeight: "37px" }],
+        "heading-large": ["24px", { lineHeight: "34px" }],
+        "heading-medium": ["18px", { lineHeight: "27px" }],
+        "subheading": ["16px", { lineHeight: "24px" }],
+        "body": ["14px", { lineHeight: "22px" }],
+        "caption": ["12px", { lineHeight: "19px" }],
+        "xsmall": ["11px", { lineHeight: "16px" }],
+        "button-big": ["16px", { lineHeight: "20px" }],
+        "button-small": ["14px", { lineHeight: "14px" }],
+      },
+      fontWeight: {
+        bold: "700",
+        medium: "500",
+        regular: "400",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
