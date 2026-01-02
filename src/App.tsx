@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button } from './components/ui/Button'
 import { Text } from './components/ui/Text'
 import { Input } from './components/ui/Input'
+import { Icon } from './components/ui/Icon'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -39,13 +40,13 @@ function App() {
               {/* 1. Default */}
               <div>
                 <p className="body-regular text-neutral-700 mb-2">Default</p>
-                <Input placeholder="Search" leftIcon="🔍"/>
+                <Input placeholder="Search" leftIcon={<Icon name="search" />} />
               </div>
 
               {/* 6. Disable */}
               <div>
                 <p className="body-regular text-neutral-700 mb-2">Disable</p>
-                <Input placeholder="Search" leftIcon="🔍" disabled/>
+                <Input placeholder="Search" leftIcon={<Icon name="search" />} disabled />
               </div>
             </div>
           </div>
@@ -58,8 +59,21 @@ function App() {
               onChange={(e) => setSearchWithClear(e.target.value)}
               onClear={() => setSearchWithClear('')}
               placeholder="Search with clear button"
-              leftIcon="🔍"
+              leftIcon={<Icon name="search" />}
             />
+          </div>
+
+          {/* Icon Test */}
+          <div className="mt-8">
+            <h2 className="heading-medium-bold mb-4">Icon Test</h2>
+            <div className="flex gap-4 items-center">
+              <Icon name="search" className="text-neutral-400" />
+              <Icon name="chevron-down" className="text-neutral-400" />
+              <Icon name="chevron-up" className="text-neutral-400" />
+              <Icon name="x" className="text-neutral-400" />
+              <Icon name="calendar" className="text-neutral-400" />
+              <Icon name="check" className="text-neutral-400" />
+            </div>
           </div>
           
         </div>

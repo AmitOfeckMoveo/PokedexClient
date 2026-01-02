@@ -2,6 +2,7 @@ import * as React from 'react';
 import { type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { inputVariants } from '@/lib/theme/components/input';
+import { Icon } from './Icon';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
@@ -32,10 +33,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           inputWidth, 
           hasRightIcon: !!showRightIcon 
         }),
+        "group",
         className
       )}>
         {leftIcon && (
-          <span className="flex-shrink-0 text-neutral-400">
+          <span className="flex-shrink-0 text-neutral-400 group-hover:text-neutral-600">
             {leftIcon}
           </span>
         )}
@@ -47,18 +49,18 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         />
         {showRightIcon && (
           <span className="flex-shrink-0 text-neutral-400 cursor-pointer hover:text-neutral-500">
-            {onClear && props.value ? (
-              <button
-                type="button"
-                onClick={onClear}
-                className="outline-none"
-                aria-label="Clear input"
-              >
-                {rightIcon || '×'}
-              </button>
-            ) : (
-              rightIcon
-            )}
+              {onClear && props.value ? (
+                <button
+                  type="button"
+                  onClick={onClear}
+                  className="outline-none"
+                  aria-label="Clear input"
+                >
+                  {rightIcon || <Icon name="x" className="text-neutral-400" />}
+                </button>
+              ) : (
+                rightIcon
+              )}
           </span>
         )}
       </div>
