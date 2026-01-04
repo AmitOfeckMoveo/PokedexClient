@@ -10,7 +10,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
  * - Typography & Colors: Fully flexible via props
  */
 export const tooltipVariants = cva(
-  'rounded block py-[5px] px-[10px] bg-neutrals-1000 text-white max-w-[325px] whitespace-normal text-center'
+  'rounded-[4px] inline-block py-[5px] px-[10px] bg-neutrals-1000 text-white max-w-[325px] whitespace-normal text-center relative'
 );
 
 export type TooltipVariants = VariantProps<typeof tooltipVariants>;
