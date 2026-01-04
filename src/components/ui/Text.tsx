@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { Tooltip } from './Tooltip';
+import { TooltipWrapper } from './TooltipWrapper';
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   typography?: string;
@@ -13,40 +13,42 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Text = React.forwardRef<HTMLElement, TextProps>(
-  ({ className, typography = 'body-regular', color, as, tooltip, tooltipTypography, tooltipBackgroundColor, tooltipTextColor, children, ...props }, ref) => {
+  ({ 
+    className, 
+    typography = 'body-regular', 
+    color, 
+    as, 
+    tooltip, 
+    tooltipTypography, 
+    tooltipBackgroundColor, 
+    tooltipTextColor, 
+    children, 
+    ...props 
+  }, ref) => {
     const Component = as || 'p';
+    const hasTooltip = Boolean(tooltip);
     
-    if (tooltip) {
-      return (
-        <span className="relative inline group">
-          <Component
-            className={cn(typography, color, 'inline-block', className)}
-            ref={ref as any}
-            {...props}
-          >
-            {children}
-          </Component>
-          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 w-max max-w-[325px]">
-            <Tooltip 
-              typography={tooltipTypography}
-              backgroundColor={tooltipBackgroundColor}
-              textColor={tooltipTextColor}
-            >
-              {tooltip}
-            </Tooltip>
-          </div>
-        </span>
-      );
-    }
-
-    return (
+    const content = (
       <Component
-        className={cn(typography, color, className)}
+        className={cn(typography, color, hasTooltip && 'inline-block', className)}
         ref={ref as any}
         {...props}
       >
         {children}
       </Component>
+    );
+
+    if (!hasTooltip) return content;
+
+    return (
+      <TooltipWrapper
+        content={tooltip}
+        typography={tooltipTypography}
+        backgroundColor={tooltipBackgroundColor}
+        textColor={tooltipTextColor}
+      >
+        {content}
+      </TooltipWrapper>
     );
   }
 );
