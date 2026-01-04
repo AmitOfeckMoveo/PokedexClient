@@ -3,6 +3,7 @@ import { Button } from './components/ui/Button'
 import { Text } from './components/ui/Text'
 import { Input } from './components/ui/Input'
 import { Icon } from './components/ui/Icon'
+import { Badge } from './components/ui/Badge'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -73,6 +74,22 @@ function App() {
               <Icon name="x" className="text-neutral-400" />
               <Icon name="calendar" className="text-neutral-400" />
               <Icon name="check" className="text-neutral-400" />
+            </div>
+          </div>
+
+          {/* Badge Examples */}
+          <div className="mt-8">
+            <h2 className="heading-medium-bold mb-4">Type Badges</h2>
+            <div className="space-y-3">
+              {/* First Row */}
+              <div className="flex gap-2 flex-wrap">
+                <Badge backgroundColor="bg-extended-lightgreen/20" textColor="text-extended-lightgreen"> Grass </Badge>
+                <Badge backgroundColor="bg-extended-purple/20" textColor="text-extended-purple"> Poison </Badge>
+                <Badge backgroundColor="bg-neutral-100" textColor="text-neutral-500"> +1 </Badge>
+                <Badge backgroundColor="bg-extended-pink/20" textColor="text-extended-pink"> Fairy </Badge>
+                <Badge backgroundColor="bg-extended-lightgreen/20" textColor="text-extended-lightgreen"> Bug </Badge>
+              </div>
+
             </div>
           </div>
           
