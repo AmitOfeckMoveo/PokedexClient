@@ -28,6 +28,9 @@
   .caption-medium         { @apply font-mulish text-caption font-medium; }
   .caption-regular        { @apply font-mulish text-caption font-normal; }
 
+  /* Sub Body */
+  .sub-body-regular       { @apply font-mulish text-sub-body font-normal; }
+
   /* X Small */
   .xsmall-bold            { @apply font-mulish text-xsmall font-bold; }
   .xsmall-medium          { @apply font-mulish text-xsmall font-medium; }

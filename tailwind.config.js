@@ -27,6 +27,7 @@ export default {
         "subheading": ["16px", { lineHeight: "24px" }],
         "body": ["14px", { lineHeight: "22px" }],
         "caption": ["12px", { lineHeight: "19px" }],
+        "sub-body": ["12px", { lineHeight: "18px" }],
         "xsmall": ["11px", { lineHeight: "16px" }],
         "button-big": ["16px", { lineHeight: "20px" }],
         "button-small": ["14px", { lineHeight: "14px" }],
@@ -85,6 +86,7 @@ export default {
           500: "#2D3033",
           600: "#71787F",
           700: "#313336",
+          1000: "#43464F",
         },
         extended: {
           purple: {
