@@ -1,0 +1,41 @@
+@layer utilities {
+  /* Heading XLarge */
+  .heading-xlarge-bold    { @apply font-mulish text-heading-xlarge font-bold; }
+  .heading-xlarge-medium  { @apply font-mulish text-heading-xlarge font-medium; }
+
+  /* Heading Large */
+  .heading-large-bold     { @apply font-mulish text-heading-large font-bold; }
+  .heading-large-medium   { @apply font-mulish text-heading-large font-medium; }
+  .heading-large-regular  { @apply font-mulish text-heading-large font-normal; }
+
+  /* Heading Medium */
+  .heading-medium-bold    { @apply font-mulish text-heading-medium font-bold; }
+  .heading-medium-medium  { @apply font-mulish text-heading-medium font-medium; }
+  .heading-medium-regular { @apply font-mulish text-heading-medium font-normal; }
+
+  /* Subheading */
+  .subheading-bold        { @apply font-mulish text-subheading font-bold; }
+  .subheading-medium      { @apply font-mulish text-subheading font-medium; }
+  .subheading-regular     { @apply font-mulish text-subheading font-normal; }
+
+  /* Body */
+  .body-bold              { @apply font-mulish text-body font-bold; }
+  .body-medium            { @apply font-mulish text-body font-medium; }
+  .body-regular           { @apply font-mulish text-body font-normal; }
+
+  /* Caption */
+  .caption-bold           { @apply font-mulish text-caption font-bold; }
+  .caption-medium         { @apply font-mulish text-caption font-medium; }
+  .caption-regular        { @apply font-mulish text-caption font-normal; }
+
+  /* X Small */
+  .xsmall-bold            { @apply font-mulish text-xsmall font-bold; }
+  .xsmall-medium          { @apply font-mulish text-xsmall font-medium; }
+  .xsmall-regular         { @apply font-mulish text-xsmall font-normal; }
+
+  /* Buttons */
+  .button-big             { @apply font-mulish text-button-big font-normal; }
+  .button-medium          { @apply font-mulish text-button-big font-normal; }
+  .button-small           { @apply font-mulish text-button-small font-normal; }
+}
+
