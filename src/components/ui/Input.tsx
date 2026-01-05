@@ -8,7 +8,6 @@ export interface InputProps
     VariantProps<typeof inputVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  onClear?: () => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -18,19 +17,18 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     inputWidth, 
     leftIcon, 
     rightIcon, 
-    onClear, 
     disabled, 
     ...props 
   }, ref) => {
-    const showRightIcon = rightIcon || (onClear && props.value);
     const inputState = disabled ? 'disabled' : 'default';
+    const computedHasRightIcon = hasRightIcon !== undefined ? hasRightIcon : !!rightIcon;
     
     return (
       <div className={cn(
         inputVariants({ 
           state: inputState,
           inputWidth, 
-          hasRightIcon: !!showRightIcon 
+          hasRightIcon: computedHasRightIcon
         }),
         className
       )}>
@@ -41,24 +39,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         <input
           ref={ref}
-          className="flex-1 bg-transparent border-0 outline-none placeholder:text-neutral-300 body-regular text-neutral-700 disabled:text-neutral-300 px-0"
+          className={cn(
+            'flex-1 bg-transparent border-0 outline-none',
+            'placeholder:text-neutral-300',
+            'body-regular text-neutral-700',
+            'disabled:text-neutral-300',
+            'px-0'
+          )}
           disabled={disabled}
           {...props}
         />
-        {showRightIcon && (
-          <span className="flex-shrink-0 text-neutral-400 cursor-pointer hover:text-neutral-500">
-            {onClear && props.value ? (
-              <button
-                type="button"
-                onClick={onClear}
-                className="outline-none"
-                aria-label="Clear input"
-              >
-                {rightIcon || '×'}
-              </button>
-            ) : (
-              rightIcon
-            )}
+        {rightIcon && (
+          <span className="flex-shrink-0 text-neutral-400">
+            {rightIcon}
           </span>
         )}
       </div>

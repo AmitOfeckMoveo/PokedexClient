@@ -1,9 +1,9 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 /**
  * Input Component Variants
  * Based on Figma specifications:
- * - Width: 293px (default)
  * - Height: 38px
  * - Border radius: 8px
  * - Padding: Top 8px, Right 16px (or 12px with right icon), Bottom 8px, Left 12px
@@ -11,7 +11,15 @@ import { cva, type VariantProps } from 'class-variance-authority';
  * States: Default, Hover, Pressed (Focus), With value, After search, Disable
  */
 export const inputVariants = cva(
-  'h-[38px] rounded-lg border body-regular transition-colors focus:outline-none disabled:pointer-events-none flex items-center gap-2 py-2 pl-3',
+  cn(
+    'h-input rounded-lg border',
+    'body-regular',
+    'transition-colors',
+    'focus:outline-none',
+    'disabled:pointer-events-none',
+    'flex items-center gap-2',
+    'py-2 pl-3'
+  ),
   {
     variants: {
       state: {
@@ -19,7 +27,6 @@ export const inputVariants = cva(
         disabled: 'bg-neutral-100 border-neutral-200 text-neutral-300 cursor-not-allowed',
       },
       inputWidth: {
-        default: 'w-[293px]',
         full: 'w-full',
         auto: 'w-auto',
       },
@@ -30,7 +37,7 @@ export const inputVariants = cva(
     },
     defaultVariants: {
       state: 'default',
-      inputWidth: 'default',
+      inputWidth: 'auto',
       hasRightIcon: false,
     },
   }
