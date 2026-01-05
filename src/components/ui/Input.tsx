@@ -6,37 +6,25 @@ import { inputVariants } from '@/lib/theme/components/input';
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ 
     className, 
-    hasRightIcon, 
     inputWidth, 
-    leftIcon, 
-    rightIcon, 
     disabled, 
     ...props 
   }, ref) => {
     const inputState = disabled ? 'disabled' : 'default';
-    const computedHasRightIcon = hasRightIcon !== undefined ? hasRightIcon : !!rightIcon;
     
     return (
       <div className={cn(
         inputVariants({ 
           state: inputState,
-          inputWidth, 
-          hasRightIcon: computedHasRightIcon
+          inputWidth
         }),
         className
       )}>
-        {leftIcon && (
-          <span className="flex-shrink-0 text-neutral-400">
-            {leftIcon}
-          </span>
-        )}
         <input
           ref={ref}
           className={cn(
@@ -49,11 +37,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           {...props}
         />
-        {rightIcon && (
-          <span className="flex-shrink-0 text-neutral-400">
-            {rightIcon}
-          </span>
-        )}
       </div>
     );
   }

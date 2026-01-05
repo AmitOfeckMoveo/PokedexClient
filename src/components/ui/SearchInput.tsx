@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { Input, type InputProps } from './Input';
+import { type InputProps } from './Input';
 import { cn } from '@/lib/utils';
+import { inputVariants } from '@/lib/theme/components/input';
 
-export interface SearchInputProps extends Omit<InputProps, 'rightIcon'> {
+export interface SearchInputProps extends InputProps {
   onSearch?: (value: string) => void;
   debounceMs?: number;
   clearIcon?: React.ReactNode;
+  leftIcon?: React.ReactNode;
 }
 
 const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
@@ -16,10 +18,14 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     value,
     onChange,
     leftIcon = '🔍',
+    className,
+    disabled,
+    inputWidth,
     ...props 
   }, ref) => {
     const [internalValue, setInternalValue] = React.useState(value || '');
     const debounceTimerRef = React.useRef<NodeJS.Timeout>();
+    const inputState = disabled ? 'disabled' : 'default';
 
     React.useEffect(() => {
       if (value !== undefined) {
@@ -57,32 +63,51 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     const showClearButton = internalValue != null && internalValue !== '';
 
     return (
-      <Input
-        ref={ref}
-        value={internalValue}
-        onChange={handleChange}
-        leftIcon={leftIcon}
-        rightIcon={
-          showClearButton ? (
-            <button
-              type="button"
-              onClick={handleClear}
-              className={cn(
-                'outline-none cursor-pointer',
-                'hover:text-neutral-500'
-              )}
-              aria-label="Clear search"
-            >
-              {clearIcon}
-            </button>
-          ) : undefined
-        }
-        {...props}
-      />
+      <div className={cn(
+        inputVariants({ 
+          state: inputState,
+          inputWidth
+        }),
+        showClearButton && 'pr-3',
+        className
+      )}>
+        {leftIcon && (
+          <span className="flex-shrink-0 text-neutral-400">
+            {leftIcon}
+          </span>
+        )}
+        <input
+          ref={ref}
+          value={internalValue}
+          onChange={handleChange}
+          className={cn(
+            'flex-1 bg-transparent border-0 outline-none',
+            'placeholder:text-neutral-300',
+            'body-regular text-neutral-700',
+            'disabled:text-neutral-300',
+            'px-0'
+          )}
+          disabled={disabled}
+          {...props}
+        />
+        {showClearButton && (
+          <button
+            type="button"
+            onClick={handleClear}
+            className={cn(
+              'flex-shrink-0 text-neutral-400',
+              'outline-none cursor-pointer',
+              'hover:text-neutral-500'
+            )}
+            aria-label="Clear search"
+          >
+            {clearIcon}
+          </button>
+        )}
+      </div>
     );
   }
 );
 SearchInput.displayName = 'SearchInput';
 
 export { SearchInput };
-

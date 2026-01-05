@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
  * Based on Figma specifications:
  * - Height: 2.375rem (38px) - responsive, scales with root font size
  * - Border radius: 8px
- * - Padding: Top 8px, Right 16px (or 12px with right icon), Bottom 8px, Left 12px
+ * - Padding: Top 8px, Right 16px, Bottom 8px, Left 12px
  * - Gap: 8px
  * States: Default, Hover, Pressed (Focus), With value, After search, Disable
  */
@@ -18,7 +18,7 @@ export const inputVariants = cva(
     'focus:outline-none',
     'disabled:pointer-events-none',
     'items-center gap-2',
-    'py-2 pl-3'
+    'py-2 pl-3 pr-4'
   ),
   {
     variants: {
@@ -37,15 +37,10 @@ export const inputVariants = cva(
         full: 'w-full flex',
         auto: 'w-auto inline-flex',
       },
-      hasRightIcon: {
-        true: 'pr-3',
-        false: 'pr-4',
-      },
     },
     defaultVariants: {
       state: 'default',
       inputWidth: 'auto',
-      hasRightIcon: false,
     },
   }
 );
