@@ -24,7 +24,6 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
       onChange,
       disabled,
       className,
-      inputWidth,
       leftIconClassName,
       clearIconClassName,
       ...props
@@ -43,7 +42,7 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     return (
       <div
         className={cn(
-          inputVariants({ state: inputState, inputWidth }),
+          inputVariants({ state: inputState }),
           showClearButton && 'pr-3',
           className
         )}

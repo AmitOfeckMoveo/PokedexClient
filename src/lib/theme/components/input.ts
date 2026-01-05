@@ -18,7 +18,8 @@ export const inputVariants = cva(
     'focus:outline-none',
     'disabled:pointer-events-none',
     'items-center gap-2',
-    'py-2 pl-3 pr-4'
+    'py-2 pl-3 pr-4',
+    'w-auto inline-flex' // Default width behavior - can be overridden via className
   ),
   {
     variants: {
@@ -33,14 +34,9 @@ export const inputVariants = cva(
           'text-neutral-300 cursor-not-allowed'
         ),
       },
-      inputWidth: {
-        full: 'w-full flex',
-        auto: 'w-auto inline-flex',
-      },
     },
     defaultVariants: {
       state: 'default',
-      inputWidth: 'auto',
     },
   }
 );

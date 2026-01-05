@@ -11,7 +11,6 @@ export interface InputProps
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ 
     className, 
-    inputWidth, 
     disabled, 
     ...props 
   }, ref) => {
@@ -20,8 +19,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={cn(
         inputVariants({ 
-          state: inputState,
-          inputWidth
+          state: inputState
         }),
         className
       )}>
