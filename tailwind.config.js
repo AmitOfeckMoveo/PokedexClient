@@ -124,7 +124,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       height: {
-        'input': '38px',
+        'input': '2.375rem', 
       },
       keyframes: {
         "accordion-down": {

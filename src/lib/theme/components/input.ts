@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 /**
  * Input Component Variants
  * Based on Figma specifications:
- * - Height: 38px
+ * - Height: 2.375rem (38px) - responsive, scales with root font size
  * - Border radius: 8px
  * - Padding: Top 8px, Right 16px (or 12px with right icon), Bottom 8px, Left 12px
  * - Gap: 8px
@@ -23,16 +23,23 @@ export const inputVariants = cva(
   {
     variants: {
       state: {
-        default: 'border-neutral-200 bg-white hover:border-neutral-600 focus:border-neutral-500',
-        disabled: 'bg-neutral-100 border-neutral-200 text-neutral-300 cursor-not-allowed',
+        default: cn(
+          'border-neutral-200 bg-white',
+          'hover:border-neutral-600',
+          'focus:border-neutral-500'
+        ),
+        disabled: cn(
+          'bg-neutral-100 border-neutral-200',
+          'text-neutral-300 cursor-not-allowed'
+        ),
       },
       inputWidth: {
         full: 'w-full',
         auto: 'w-auto',
       },
       hasRightIcon: {
-        true: 'pr-3',  
-        false: 'pr-4', 
+        true: 'pr-3',
+        false: 'pr-4',
       },
     },
     defaultVariants: {
