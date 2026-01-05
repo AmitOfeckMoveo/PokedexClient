@@ -28,8 +28,8 @@ export default {
         "body": ["14px", { lineHeight: "22px" }],
         "caption": ["12px", { lineHeight: "19px" }],
         "xsmall": ["11px", { lineHeight: "16px" }],
-        "button-big": ["16px", { lineHeight: "20px" }],
-        "button-small": ["14px", { lineHeight: "14px" }],
+        "button-big": ["16px", { lineHeight: "24px" }], 
+        "button-small": ["14px", { lineHeight: "22px" }], 
       },
       fontWeight: {
         bold: "700",
@@ -124,6 +124,7 @@ export default {
         "button-height-sm": "32px",
         "button-height-md": "36px",
         "button-height-lg": "40px",
+        "gap-button": "4px", 
         "spinner-size-sm": "16px",
         "spinner-size-md": "24px",
         "spinner-size-lg": "32px",
@@ -132,10 +133,7 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        button: "4px",
-      },
-      gap: {
-        button: "4px",
+        button: "4px", 
       },
       keyframes: {
         "accordion-down": {

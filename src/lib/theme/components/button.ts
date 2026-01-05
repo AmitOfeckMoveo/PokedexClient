@@ -16,7 +16,7 @@ export const buttonVariants = cva(
   // Base styles
   cn(
     'inline-flex items-center justify-center',
-    'rounded-button font-medium transition-colors',
+    'rounded-button font-normal transition-colors',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
     'disabled:pointer-events-none',
     'gap-button',
