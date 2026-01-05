@@ -9,7 +9,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  loading?: boolean;
+  isLoading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -21,11 +21,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     rightIcon, 
     children,
     disabled,
-    loading,
+    isLoading,
     type = 'button',
     ...props 
   }, ref) => {
-    const isDisabled = disabled || loading;
+    const isDisabled = disabled || isLoading;
     
     return (
       <button
@@ -36,10 +36,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         <span className={buttonContentContainer}>
-          {loading && <Spinner size="sm" />}
-          {!loading && leftIcon && <span>{leftIcon}</span>}
+          {isLoading && <Spinner size="sm" />}
+          {!isLoading && leftIcon && <span>{leftIcon}</span>}
           {children}
-          {!loading && rightIcon && <span>{rightIcon}</span>}
+          {!isLoading && rightIcon && <span>{rightIcon}</span>}
         </span>
       </button>
     );
