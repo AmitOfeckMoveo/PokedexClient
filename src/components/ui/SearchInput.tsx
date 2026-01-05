@@ -2,84 +2,63 @@ import * as React from 'react';
 import { type InputProps } from './Input';
 import { cn } from '@/lib/utils';
 import { inputVariants } from '@/lib/theme/components/input';
+import { useSearchInput } from '@/hooks/useSearchInput';
 
 export interface SearchInputProps extends InputProps {
   onSearch?: (value: string) => void;
   debounceMs?: number;
   clearIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
+  leftIconClassName?: string;
+  clearIconClassName?: string;
 }
 
-const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ 
-    onSearch,
-    debounceMs = 300,
-    clearIcon = '×',
-    value,
-    onChange,
-    leftIcon = '🔍',
-    className,
-    disabled,
-    inputWidth,
-    ...props 
-  }, ref) => {
-    const [internalValue, setInternalValue] = React.useState(value || '');
-    const debounceTimerRef = React.useRef<NodeJS.Timeout>();
+export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
+  (
+    {
+      onSearch,
+      debounceMs = 300,
+      clearIcon = '×',
+      leftIcon = '🔍',
+      value,
+      onChange,
+      disabled,
+      className,
+      inputWidth,
+      leftIconClassName,
+      clearIconClassName,
+      ...props
+    },
+    ref
+  ) => {
+    const { displayValue, showClearButton, handleChange, handleClear } = useSearchInput({
+      value,
+      onChange,
+      onSearch,
+      debounceMs,
+    });
+
     const inputState = disabled ? 'disabled' : 'default';
 
-    React.useEffect(() => {
-      if (value !== undefined) {
-        setInternalValue(value);
-      }
-    }, [value]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newValue = e.target.value;
-      setInternalValue(newValue);
-      
-      onChange?.(e);
-      
-      // Debounce search callback
-      if (onSearch) {
-        if (debounceTimerRef.current) {
-          clearTimeout(debounceTimerRef.current);
-        }
-        debounceTimerRef.current = setTimeout(() => {
-          onSearch(newValue);
-        }, debounceMs);
-      }
-    };
-
-    const handleClear = () => {
-      setInternalValue('');
-      const syntheticEvent = {
-        target: { value: '' },
-        currentTarget: { value: '' },
-      } as React.ChangeEvent<HTMLInputElement>;
-      onChange?.(syntheticEvent);
-      onSearch?.('');
-    };
-
-    const showClearButton = internalValue != null && internalValue !== '';
-
     return (
-      <div className={cn(
-        inputVariants({ 
-          state: inputState,
-          inputWidth
-        }),
-        showClearButton && 'pr-3',
-        className
-      )}>
+      <div
+        className={cn(
+          inputVariants({ state: inputState, inputWidth }),
+          showClearButton && 'pr-3',
+          className
+        )}
+      >
         {leftIcon && (
-          <span className="flex-shrink-0 text-neutral-400">
+          <span className={cn('flex-shrink-0', leftIconClassName)}>
             {leftIcon}
           </span>
         )}
+
         <input
           ref={ref}
-          value={internalValue}
+          value={displayValue}
           onChange={handleChange}
+          disabled={disabled}
           className={cn(
             'flex-1 bg-transparent border-0 outline-none',
             'placeholder:text-neutral-300',
@@ -87,17 +66,16 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
             'disabled:text-neutral-300',
             'px-0'
           )}
-          disabled={disabled}
           {...props}
         />
+
         {showClearButton && (
           <button
             type="button"
             onClick={handleClear}
             className={cn(
-              'flex-shrink-0 text-neutral-400',
-              'outline-none cursor-pointer',
-              'hover:text-neutral-500'
+              'flex-shrink-0 outline-none cursor-pointer',
+              clearIconClassName
             )}
             aria-label="Clear search"
           >
@@ -108,6 +86,5 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     );
   }
 );
-SearchInput.displayName = 'SearchInput';
 
-export { SearchInput };
+SearchInput.displayName = 'SearchInput';
