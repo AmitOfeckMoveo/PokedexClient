@@ -17,7 +17,7 @@ export const inputVariants = cva(
     'transition-colors',
     'focus:outline-none',
     'disabled:pointer-events-none',
-    'flex items-center gap-2',
+    'items-center gap-2',
     'py-2 pl-3'
   ),
   {
@@ -34,8 +34,8 @@ export const inputVariants = cva(
         ),
       },
       inputWidth: {
-        full: 'w-full',
-        auto: 'w-auto',
+        full: 'w-full flex',
+        auto: 'w-auto inline-flex',
       },
       hasRightIcon: {
         true: 'pr-3',
