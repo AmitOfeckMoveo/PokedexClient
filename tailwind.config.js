@@ -118,6 +118,23 @@ export default {
         "gradient-disabled": "linear-gradient(to right, #5BE2F7, #50DDA0)",
         "gradient-fainted": "linear-gradient(to right, #F75B5B, #DD7150)",
       },
+      width: {
+        "image-xs": "24px", 
+        "image-sm": "48px",
+        "image-md": "54px", 
+        "image-lg": "80px",
+        "image-xl": "156px", 
+      },
+      height: {
+        "image-xs": "24px",
+        "image-sm": "48px",
+        "image-md": "54px",
+        "image-lg": "80px",
+        "image-xl": "156px",
+      },
+      borderWidth: {
+        "image": "0.72px", 
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
