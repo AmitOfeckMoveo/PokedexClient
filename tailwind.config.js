@@ -90,10 +90,14 @@ export default {
           purple: {
             DEFAULT: "#A88FEF",
             hover: "#C0B0F2",
+            light: "#F0EDFF", // Light purple background for badges
+            text: "#8B6FEF", // Purple text for badges
           },
           lightgreen: {
             DEFAULT: "#A7EF8F",
             hover: "#C2EFB8",
+            light: "#F0FFED", // Light green background for badges (Figma: #F0FFED)
+            text: "#41A83F", // Green text for badges (Figma: #41A83F)
           },
           yellow: {
             DEFAULT: "#EAEB8F",
@@ -102,6 +106,24 @@ export default {
           pink: {
             DEFAULT: "#EF8FBD",
             hover: "#EEA7CC",
+            light: "#FFEDF5", 
+            text: "#EF8FBD", 
+          },
+          green: {
+            light: "#F0FFED", 
+            text: "#41A83F",
+          },
+          red: {
+            light: "#FFEDED", 
+            text: "#FF3131", 
+          },
+          darkred: {
+            light: "#FFE5E5", 
+            text: "#CC0000", 
+          },
+          gray: {
+            light: "#F2F5F7", 
+            text: "#5A6066", 
           },
         },
         "success-green": "#51FF4E",
@@ -117,6 +139,9 @@ export default {
         "gradient-default": "linear-gradient(to right, #5BE2F7, #50DDA0)",
         "gradient-disabled": "linear-gradient(to right, #5BE2F7, #50DDA0)",
         "gradient-fainted": "linear-gradient(to right, #F75B5B, #DD7150)",
+      },
+      borderWidth: {
+        'badge': '0.8px', 
       },
       borderRadius: {
         lg: "var(--radius)",

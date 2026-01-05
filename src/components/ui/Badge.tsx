@@ -13,7 +13,7 @@ export interface BadgeProps
 }
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ className, typography = 'caption-regular', backgroundColor, textColor, children, ...props }, ref) => {
+  ({ className, typography = 'caption-medium', backgroundColor, textColor, children, ...props }, ref) => {
     return (
       <span
         className={cn(
