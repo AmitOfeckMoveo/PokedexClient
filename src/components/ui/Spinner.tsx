@@ -1,33 +1,26 @@
 import * as React from 'react';
+import { type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
+import { spinnerVariants } from '@/lib/theme/components/spinner';
 
-export interface SpinnerProps {
-  size?: 'sm' | 'md' | 'lg';
-  className?: string;
+export interface SpinnerProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    VariantProps<typeof spinnerVariants> {
+  'aria-label'?: string;
 }
 
 const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
-  ({ size = 'sm', className }, ref) => {
-    const sizeClasses = {
-      sm: 'h-spinner-size-sm w-spinner-size-sm',
-      md: 'h-spinner-size-md w-spinner-size-md',
-      lg: 'h-spinner-size-lg w-spinner-size-lg',
-    };
-
+  ({ size, className, 'aria-label': ariaLabel = 'Loading', ...props }, ref) => {
     return (
       <span
         ref={ref}
-        className={cn(
-          'inline-block animate-spin rounded-full border-2 border-current border-t-transparent',
-          sizeClasses[size],
-          className
-        )}
-        aria-label="Loading"
+        className={cn(spinnerVariants({ size }), className)}
+        aria-label={ariaLabel}
+        {...props}
       />
     );
   }
 );
 Spinner.displayName = 'Spinner';
 
-export { Spinner };
-
+export { Spinner, spinnerVariants };
