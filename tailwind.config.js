@@ -203,6 +203,9 @@ export default {
         "table-description-max-width": "450px",
         "table-pagination-height": "44px",
         "table-pagination-padding": "10px",
+        "dropdown-menu-gap": "2px",
+        "dropdown-item-px": "12px",
+        "dropdown-item-py": "6px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -215,6 +218,7 @@ export default {
       borderWidth: {
         "hp-icon-sm": "1.5px",
         "hp-icon-md": "2px",
+        dropdown: "4px",
       },
       height: {
         'input': '2.375rem',
