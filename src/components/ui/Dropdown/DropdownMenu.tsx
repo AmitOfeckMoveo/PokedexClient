@@ -2,9 +2,7 @@ import * as React from 'react';
 import { dropdownMenuVariants } from '@/lib/theme/components/dropdown-menu';
 
 /**
- * DropdownMenu - Internal component
- * Responsible for menu container and positioning
- * 
+
  * Responsibilities:
  * - Positioning (absolute, relative to trigger)
  * - Width matching trigger

@@ -24,20 +24,7 @@ export interface DropdownProps<T = string> {
 }
 
 /**
- * Dropdown - Generic, reusable dropdown component
- * 
- * Responsibilities:
- * - Composes DropdownMenu and DropdownItem
- * - Renders UI using hook logic
- * 
- * Features:
- * - Controlled component (receives value, calls onChange)
- * - No business logic or domain concepts
- * - Composed of Button and Text components
- * - Uses theme tokens exclusively
- * - Handles open/close state internally
- * - Click outside to close
- * - Keyboard navigation support
+
  */
 export function Dropdown<T = string>({
   label,
