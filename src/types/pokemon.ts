@@ -1,5 +1,3 @@
-// src/types/pokemon.ts
-
 export type PokemonType =
   | 'Grass'
   | 'Poison'
