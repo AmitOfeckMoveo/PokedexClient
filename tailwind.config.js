@@ -124,6 +124,18 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        tooltip: "4px",
+      },
+      spacing: {
+        'tooltip-gap': '4px',
+        'tooltip-sm-y': '4px',
+        'tooltip-sm-x': '8px',
+        'tooltip-md-y': '5px',
+        'tooltip-md-x': '10px',
+        'tooltip-arrow': '6px',
+      },
+      maxWidth: {
+        tooltip: '325px',
       },
       keyframes: {
         "accordion-down": {
