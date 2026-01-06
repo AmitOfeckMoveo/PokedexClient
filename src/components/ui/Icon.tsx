@@ -5,30 +5,28 @@ import { iconRegistry, type IconName } from './icons';
 import { iconVariants } from '@/lib/theme/components/icon';
 
 export interface IconProps 
-  extends Omit<React.SVGProps<SVGSVGElement>, 'width' | 'height'> {
+  extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
   name: IconName;
   size?: VariantProps<typeof iconVariants>['size'];
   className?: string;
 }
 
-const Icon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ name, size, className, ...props }, ref) => {
-    const IconComponent = iconRegistry[name];
-    
-    if (!IconComponent) {
-      console.warn(`Icon "${name}" not found in registry`);
-      return null;
-    }
+export function Icon({ name, size, className, ...props }: IconProps) {
+  const Svg = iconRegistry[name];
 
-    return (
-      <IconComponent
-        ref={ref}
-        className={cn(iconVariants({ size }), className)}
-        {...props}
-      />
-    );
+  if (!Svg) {
+    console.warn(`Icon "${name}" not found in registry`);
+    return null;
   }
-);
-Icon.displayName = 'Icon';
 
-export { Icon, type IconName };
+  return (
+    <Svg
+      focusable={false}
+      aria-hidden="true"
+      className={cn(iconVariants({ size }), className)}
+      {...props}
+    />
+  );
+}
+
+export { type IconName };

@@ -1,78 +1,23 @@
-import * as React from 'react';
+import type { ComponentType, SVGProps } from 'react';
 
-// Helper to create a React component from SVG content
-const createIconComponent = (
-  viewBox: string,
-  path: string
-): React.FC<React.SVGProps<SVGSVGElement>> => {
-  return React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
-    ({ className, ...props }, ref) => (
-      <svg
-        ref={ref}
-        viewBox={viewBox}
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={className}
-        {...props}
-      >
-        <path d={path} fill="currentColor" />
-      </svg>
-    )
-  ) as React.FC<React.SVGProps<SVGSVGElement>>;
-};
+import Calendar from './calendar.svg?react';
+import ChevronDown from './chevron-down.svg?react';
+import ChevronUp from './chevron-up.svg?react';
+import List from './list.svg?react';
+import Cards from './cards.svg?react';
+import Check from './check.svg?react';
+import Search from './search.svg?react';
+import X from './x.svg?react';
 
-// Create icon components from SVG content
-const SearchIcon = createIconComponent(
-  '0 0 15 15',
-  'M10.4167 9.16667H9.75833L9.525 8.94167C10.3417 7.99167 10.8333 6.75833 10.8333 5.41667C10.8333 2.425 8.40833 0 5.41667 0C2.425 0 0 2.425 0 5.41667C0 8.40833 2.425 10.8333 5.41667 10.8333C6.75833 10.8333 7.99167 10.3417 8.94167 9.525L9.16667 9.75833V10.4167L13.3333 14.575L14.575 13.3333L10.4167 9.16667V9.16667ZM5.41667 9.16667C3.34167 9.16667 1.66667 7.49167 1.66667 5.41667C1.66667 3.34167 3.34167 1.66667 5.41667 1.66667C7.49167 1.66667 9.16667 3.34167 9.16667 5.41667C9.16667 7.49167 7.49167 9.16667 5.41667 9.16667Z'
-);
-
-const XIcon = createIconComponent(
-  '0 0 12 12',
-  'M11.6667 1.175L10.4917 0L5.83333 4.65833L1.175 0L0 1.175L4.65833 5.83333L0 10.4917L1.175 11.6667L5.83333 7.00833L10.4917 11.6667L11.6667 10.4917L7.00833 5.83333L11.6667 1.175Z'
-);
-
-const CalendarIcon = createIconComponent(
-  '0 0 14 15',
-  'M3 6.75H4.5V8.25H3V6.75ZM13.5 3V13.5C13.5 14.325 12.825 15 12 15H1.5C0.6675 15 0 14.325 0 13.5L0.00749999 3C0.00749999 2.175 0.6675 1.5 1.5 1.5H2.25V0H3.75V1.5H9.75V0H11.25V1.5H12C12.825 1.5 13.5 2.175 13.5 3ZM1.5 4.5H12V3H1.5V4.5ZM12 13.5V6H1.5V13.5H12ZM9 8.25H10.5V6.75H9V8.25ZM6 8.25H7.5V6.75H6V8.25Z'
-);
-
-const CardsIcon = createIconComponent(
-  '0 0 20 16',
-  'M2 16C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H18C18.55 0 19.0208 0.195833 19.4125 0.5875C19.8042 0.979167 20 1.45 20 2V14C20 14.55 19.8042 15.0208 19.4125 15.4125C19.0208 15.8042 18.55 16 18 16H2ZM2 7H6V2H2V7ZM8 7H12V2H8V7ZM14 7H18V2H14V7ZM6 14V9H2V14H6ZM8 14H12V9H8V14ZM14 14H18V9H14V14Z'
-);
-
-const CheckIcon = createIconComponent(
-  '0 0 17 13',
-  'M5.7 12.025L0 6.325L1.425 4.9L5.7 9.175L14.875 0L16.3 1.425L5.7 12.025Z'
-);
-
-const ChevronDownIcon = createIconComponent(
-  '0 0 14 8',
-  'M1.1802 7.78003L0.000195376 6.60003L6.6002 2.93026e-05L13.2002 6.60003L12.0202 7.78003L6.6002 2.36003L1.1802 7.78003Z'
-);
-
-const ChevronUpIcon = createIconComponent(
-  '0 0 14 8',
-  'M1.1802 -5.25411e-07L0.000195376 1.18L6.6002 7.78L13.2002 1.18L12.0202 -5.15794e-08L6.6002 5.42L1.1802 -5.25411e-07Z'
-);
-
-const ListIcon = createIconComponent(
-  '0 0 18 16',
-  'M6 15V13H18V15H6ZM6 9V7H18V9H6ZM6 3V1H18V3H6ZM2 16C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14C0 13.45 0.195833 12.9792 0.5875 12.5875C0.979167 12.1958 1.45 12 2 12C2.55 12 3.02083 12.1958 3.4125 12.5875C3.80417 12.9792 4 13.45 4 14C4 14.55 3.80417 15.0208 3.4125 15.4125C3.02083 15.8042 2.55 16 2 16ZM2 10C1.45 10 0.979167 9.80417 0.5875 9.4125C0.195833 9.02083 0 8.55 0 8C0 7.45 0.195833 6.97917 0.5875 6.5875C0.979167 6.19583 1.45 6 2 6C2.55 6 3.02083 6.19583 3.4125 6.5875C3.80417 6.97917 4 7.45 4 8C4 8.55 3.80417 9.02083 3.4125 9.4125C3.02083 9.80417 2.55 10 2 10ZM2 4C1.45 4 0.979167 3.80417 0.5875 3.4125C0.195833 3.02083 0 2.55 0 2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0C2.55 0 3.02083 0.195833 3.4125 0.5875C3.80417 0.979167 4 1.45 4 2C4 2.55 3.80417 3.02083 3.4125 3.4125C3.02083 3.80417 2.55 4 2 4Z'
-);
-
-// Icon registry - automatically derive IconName from keys
 export const iconRegistry = {
-  'search': SearchIcon,
-  'x': XIcon,
-  'calendar': CalendarIcon,
-  'cards': CardsIcon,
-  'check': CheckIcon,
-  'chevron-down': ChevronDownIcon,
-  'chevron-up': ChevronUpIcon,
-  'list': ListIcon,
-} as const satisfies Record<string, React.FC<React.SVGProps<SVGSVGElement>>>;
+  calendar: Calendar,
+  'chevron-down': ChevronDown,
+  'chevron-up': ChevronUp,
+  list: List,
+  cards: Cards,
+  check: Check,
+  search: Search,
+  x: X,
+} as const satisfies Record<string, ComponentType<SVGProps<SVGSVGElement>>>;
 
-// Automatically derive IconName type from registry keys
 export type IconName = keyof typeof iconRegistry;
