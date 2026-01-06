@@ -1,4 +1,3 @@
-import { Text } from '../Text';
 import { tabItemVariants, type TabItemVariants } from '@/lib/theme/components/tabs';
 
 /**
@@ -34,19 +33,7 @@ export function TabItem({
       className={tabItemVariants({ variant, active })}
       onClick={onClick}
     >
-      <Text 
-        typography="body-regular" 
-        color={
-          variant === 'pills'
-            ? 'primary-300'
-            : variant === 'underline' && active
-            ? 'neutral-1000'
-            : 'neutral-700'
-        } 
-        as="span"
-      >
-        {label}
-      </Text>
+      {label}
     </button>
   );
 }

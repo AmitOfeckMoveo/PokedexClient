@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 export const tabItemVariants = cva(
   cn(
     'inline-flex items-center justify-center',
-    'body-regular text-neutral-700',
+    'body-regular',
     'cursor-pointer transition-colors',
     'focus:outline-none',
     'disabled:opacity-50 disabled:cursor-not-allowed'
@@ -42,7 +42,8 @@ export const tabItemVariants = cva(
         variant: 'pills',
         active: true,
         class: cn(
-          'bg-primary-50'
+          'bg-primary-50',
+          'text-primary-300'
         ),
       },
       // Pills variant - inactive state
@@ -50,7 +51,8 @@ export const tabItemVariants = cva(
         variant: 'pills',
         active: false,
         class: cn(
-          'hover:bg-neutral-100'
+          'hover:bg-neutral-100',
+          'text-primary-300'
         ),
       },
       // Underline variant - active state
@@ -58,7 +60,17 @@ export const tabItemVariants = cva(
         variant: 'underline',
         active: true,
         class: cn(
-          'border-b-black'
+          'border-b-black',
+          'text-neutral-1000'
+        ),
+      },
+      // Underline variant - inactive state
+      {
+        variant: 'underline',
+        active: false,
+        class: cn(
+          'hover:text-neutral-500',
+          'text-neutral-700'
         ),
       },
     ],

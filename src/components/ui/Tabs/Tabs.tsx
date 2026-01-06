@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { TabItem } from './TabItem';
+import { useTabs } from '@/hooks/useTabs';
 
 /**
  * Tab Item Type
@@ -35,15 +35,11 @@ export function Tabs<T = string>({
   variant = 'pills',
   className,
 }: TabsProps<T>) {
-  const [activeValue, setActiveValue] = useState<T>(defaultValue);
-
-  const handleTabClick = (value: T) => {
-    const item = items.find((item) => item.value === value);
-    if (item?.disabled) return;
-    
-    setActiveValue(value);
-    onChange?.(value);
-  };
+  const { activeValue, handleTabClick } = useTabs({
+    defaultValue,
+    items,
+    onChange,
+  });
 
   const gapClass = variant === 'pills' ? 'gap-tab-pills-gap' : 'gap-tab-underline-gap';
 
