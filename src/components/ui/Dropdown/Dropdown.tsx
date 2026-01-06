@@ -1,9 +1,9 @@
 import { cn } from '@/lib/utils';
-import { Button } from '../Button';
 import { Text } from '../Text';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownItem } from './DropdownItem';
 import { useDropdown } from '@/hooks/useDropdown';
+import { dropdownTriggerVariants } from '@/lib/theme/components/dropdown-trigger';
 
 /**
  * Dropdown Component Types
@@ -55,19 +55,19 @@ export function Dropdown<T = string>({
   return (
     <div className={cn('relative inline-block overflow-visible', className)}>
       {/* Trigger Button */}
-      <Button
+      <button
         ref={triggerRef}
-        variant="secondary"
-        size="medium"
+        className={dropdownTriggerVariants()}
         onClick={handleTriggerClick}
         disabled={disabled}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        type="button"
       >
         <Text typography="body-regular" color="neutral-700" as="span">
           {finalDisplayLabel}
         </Text>
-      </Button>
+      </button>
 
       {/* Dropdown Menu - Positioned relative to trigger */}
       {isOpen && (
