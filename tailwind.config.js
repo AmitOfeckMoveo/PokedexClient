@@ -28,8 +28,8 @@ export default {
         "body": ["14px", { lineHeight: "22px" }],
         "caption": ["12px", { lineHeight: "19px" }],
         "xsmall": ["11px", { lineHeight: "16px" }],
-        "button-big": ["16px", { lineHeight: "20px" }],
-        "button-small": ["14px", { lineHeight: "14px" }],
+        "button-big": ["16px", { lineHeight: "24px" }], 
+        "button-small": ["14px", { lineHeight: "22px" }], 
       },
       fontWeight: {
         bold: "700",
@@ -118,10 +118,27 @@ export default {
         "gradient-disabled": "linear-gradient(to right, #5BE2F7, #50DDA0)",
         "gradient-fainted": "linear-gradient(to right, #F75B5B, #DD7150)",
       },
+      spacing: {
+        "button-px": "16px",
+        "button-py-sm": "9px",
+        "button-py-md": "10px",
+        "button-py-lg": "12px",
+        "button-height-sm": "32px",
+        "button-height-md": "36px",
+        "button-height-lg": "40px",
+        "gap-button": "4px", 
+        "spinner-size-sm": "16px",
+        "spinner-size-md": "24px",
+        "spinner-size-lg": "32px",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        button: "4px", 
+      },
+      height: {
+        'input': '2.375rem', 
       },
       width: {
         'icon-size-sm': '1rem',   

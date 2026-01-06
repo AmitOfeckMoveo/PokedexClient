@@ -1,26 +1,46 @@
 import * as React from 'react';
 import { type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/lib/theme/components/button';
+import { buttonVariants, buttonContentContainer } from '@/lib/theme/components/button';
+import { Spinner } from './Spinner';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  isLoading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, leftIcon, rightIcon, children, ...props }, ref) => {
+  ({ 
+    className, 
+    variant, 
+    size, 
+    leftIcon, 
+    rightIcon, 
+    children,
+    disabled,
+    isLoading,
+    type = 'button',
+    ...props 
+  }, ref) => {
+    const isDisabled = disabled || isLoading;
+    
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        type={type}
+        className={cn(buttonVariants({ variant, size }), className)}
         ref={ref}
+        disabled={isDisabled}
         {...props}
       >
-        {leftIcon && <span className="mr-1">{leftIcon}</span>}
-        {children}
-        {rightIcon && <span className="ml-1">{rightIcon}</span>}
+        <span className={buttonContentContainer}>
+          {isLoading && <Spinner />}
+          {!isLoading && leftIcon && <span>{leftIcon}</span>}
+          {children}
+          {!isLoading && rightIcon && <span>{rightIcon}</span>}
+        </span>
       </button>
     );
   }

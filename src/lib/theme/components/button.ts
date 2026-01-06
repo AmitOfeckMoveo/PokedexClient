@@ -1,4 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 const buttonTypography = {
   small: 'button-small',
@@ -13,18 +14,32 @@ const buttonTypography = {
  */
 export const buttonVariants = cva(
   // Base styles
-  'inline-flex items-center justify-center rounded-[4px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none gap-1',
+  cn(
+    'inline-flex items-center justify-center',
+    'rounded-button font-normal transition-colors',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+    'disabled:pointer-events-none',
+    'gap-button',
+    'px-button-px'
+  ),
   {
     variants: {
       variant: {
-        // uses your color tokens from tailwind.config.js
-        primary: 'bg-primary-300 text-white hover:bg-primary-400 active:bg-primary-500 disabled:bg-neutral-200 disabled:text-neutral-300',
-        secondary: 'bg-white border border-primary-300 text-primary-300 hover:bg-primary-50 hover:border-primary-300 active:bg-primary-100 active:border-primary-300 disabled:bg-white disabled:border-neutral-300 disabled:text-neutral-300',
+        primary: cn(
+          'bg-primary-300 text-white',
+          'hover:bg-primary-400 active:bg-primary-500',
+          'disabled:bg-neutral-200 disabled:text-neutral-300'
+        ),
+        secondary: cn(
+          'bg-white text-primary-300 border border-primary-300',
+          'hover:bg-primary-50 active:bg-primary-100',
+          'disabled:bg-white disabled:border-neutral-300 disabled:text-neutral-300'
+        ),
       },
       size: {
-        small: `min-h-8 px-4 py-[9px] ${buttonTypography.small}`,
-        medium: `min-h-9 px-4 py-[10px] ${buttonTypography.medium}`,
-        large: `min-h-10 px-4 py-[12px] ${buttonTypography.large}`,
+        small: cn('min-h-button-height-sm', 'py-button-py-sm', buttonTypography.small),
+        medium: cn('min-h-button-height-md', 'py-button-py-md', buttonTypography.medium),
+        large: cn('min-h-button-height-lg', 'py-button-py-lg', buttonTypography.large),
       },
     },
     defaultVariants: {
@@ -35,4 +50,7 @@ export const buttonVariants = cva(
 );
 
 export type ButtonVariants = VariantProps<typeof buttonVariants>;
+
+// Reusable container classes for button content
+export const buttonContentContainer = 'flex items-center gap-button';
 
