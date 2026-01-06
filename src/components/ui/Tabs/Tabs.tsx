@@ -1,9 +1,10 @@
 import { cn } from '@/lib/utils';
 import { TabItem } from './TabItem';
 import { useTabs } from '@/hooks/useTabs';
+import { tabsContainerVariants, type TabVariant } from '@/lib/theme/components/tabs';
 
 /**
- * Tab Item Type
+ * Tabs Component Types
  */
 export type TabItemType<T = string> = {
   label: string;
@@ -11,14 +12,13 @@ export type TabItemType<T = string> = {
   disabled?: boolean;
 };
 
-/**
- * Tabs Component Props
- */
+export type { TabVariant };
+
 export interface TabsProps<T = string> {
   items: TabItemType<T>[];
   defaultValue: T;
   onChange?: (value: T) => void;
-  variant?: 'pills' | 'underline';
+  variant?: TabVariant;
   className?: string;
 }
 
@@ -41,10 +41,11 @@ export function Tabs<T = string>({
     onChange,
   });
 
-  const gapClass = variant === 'pills' ? 'gap-tab-pills-gap' : 'gap-tab-underline-gap';
-
   return (
-    <div className={cn('inline-flex items-center', gapClass, className)} role="tablist">
+    <div 
+      className={cn(tabsContainerVariants({ variant }), className)} 
+      role="tablist"
+    >
       {items.map((item, index) => (
         <TabItem
           key={index}
