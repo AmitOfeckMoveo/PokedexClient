@@ -83,6 +83,7 @@ export default {
           300: "#5A6066",
           400: "#44484C",
           500: "#2D3033",
+          600: "#71787F",
           700: "#313336",
         },
         extended: {
@@ -135,6 +136,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
         button: "4px", 
+      },
+      height: {
+        'input': '2.375rem', 
       },
       keyframes: {
         "accordion-down": {
