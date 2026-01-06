@@ -4,8 +4,6 @@ export const CheckIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGEl
   ({ className, ...props }, ref) => (
     <svg
       ref={ref}
-      width="17"
-      height="13"
       viewBox="0 0 17 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

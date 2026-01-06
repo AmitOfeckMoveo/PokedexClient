@@ -4,8 +4,6 @@ export const XIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElemen
   ({ className, ...props }, ref) => (
     <svg
       ref={ref}
-      width="12"
-      height="12"
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

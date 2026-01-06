@@ -123,6 +123,16 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      width: {
+        'icon-size-sm': '1rem',   
+        'icon-size-md': '1.25rem', 
+        'icon-size-lg': '1.5rem',  
+      },
+      height: {
+        'icon-size-sm': '1rem',  
+        'icon-size-md': '1.25rem', 
+        'icon-size-lg': '1.5rem',  
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
