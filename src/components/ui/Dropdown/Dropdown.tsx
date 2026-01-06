@@ -16,7 +16,7 @@ export type DropdownOption<T = string> = {
 
 export interface DropdownProps<T = string> {
   label: string;
-  value: T;
+  value?: T | null;
   options: DropdownOption<T>[];
   onChange: (value: T) => void;
   disabled?: boolean;
@@ -42,7 +42,7 @@ export function Dropdown<T = string>({
     handleClose,
   } = useDropdown(disabled);
 
-  const selectedOption = options.find((option) => option.value === value);
+  const selectedOption = value != null ? options.find((option) => option.value === value) : null;
   const finalDisplayLabel = selectedOption?.label || label;
 
   const handleOptionClick = (optionValue: T) => {
@@ -76,7 +76,7 @@ export function Dropdown<T = string>({
             <DropdownItem
               key={index}
               label={option.label}
-              selected={option.value === value}
+              selected={value != null && option.value === value}
               disabled={option.disabled || false}
               onClick={() => handleOptionClick(option.value)}
             />
