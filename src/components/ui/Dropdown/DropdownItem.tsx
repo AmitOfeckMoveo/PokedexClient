@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Text } from '../Text';
 import { dropdownItemVariants } from '@/lib/theme/components/dropdown-item';
 
@@ -8,14 +7,13 @@ import { dropdownItemVariants } from '@/lib/theme/components/dropdown-item';
  * - Selected state styling
  * - Disabled state handling
  * - Hover/focus styles
- * - Click and keyboard interaction
+ * - Click interaction
  */
 interface DropdownItemProps {
   label: string;
   selected: boolean;
   disabled: boolean;
   onClick: () => void;
-  onKeyDown: (e: React.KeyboardEvent) => void;
 }
 
 export function DropdownItem({
@@ -23,7 +21,6 @@ export function DropdownItem({
   selected,
   disabled,
   onClick,
-  onKeyDown,
 }: DropdownItemProps) {
   return (
     <button
@@ -33,7 +30,6 @@ export function DropdownItem({
       disabled={disabled}
       className={dropdownItemVariants({ selected })}
       onClick={onClick}
-      onKeyDown={onKeyDown}
     >
       <Text typography="body-regular" color="neutral-700" as="span">
         {label}

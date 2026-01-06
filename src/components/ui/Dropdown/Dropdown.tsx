@@ -38,19 +38,19 @@ export function Dropdown<T = string>({
     isOpen,
     dropdownRef,
     triggerRef,
-    displayLabel,
     handleTriggerClick,
-    handleOptionClick,
-    handleItemKeyDown,
-  } = useDropdown({
-    value,
-    options,
-    onChange,
-    disabled,
-  });
+    handleClose,
+  } = useDropdown(disabled);
 
-  // Use label as fallback if no option is selected
-  const finalDisplayLabel = displayLabel || label;
+  const selectedOption = options.find((option) => option.value === value);
+  const finalDisplayLabel = selectedOption?.label || label;
+
+  const handleOptionClick = (optionValue: T) => {
+    const option = options.find((opt) => opt.value === optionValue);
+    if (option?.disabled) return;
+    onChange(optionValue);
+    handleClose();
+  };
 
   return (
     <div className={cn('relative inline-block overflow-visible', className)}>
@@ -79,7 +79,6 @@ export function Dropdown<T = string>({
               selected={option.value === value}
               disabled={option.disabled || false}
               onClick={() => handleOptionClick(option.value)}
-              onKeyDown={handleItemKeyDown(option.value)}
             />
           ))}
         </DropdownMenu>
