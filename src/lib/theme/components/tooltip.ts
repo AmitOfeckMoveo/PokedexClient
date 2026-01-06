@@ -54,7 +54,7 @@ export const tooltipArrowVariants = cva(
   {
     variants: {
       tone: {
-        dark: 'border-t-[#43464F]', // neutrals-1000 from Figma
+        dark: 'border-t-[#43464F]', // i cant import from tailwind.config , back to it
         light: cn(
           'border-t-white',
           'border-l-neutral-200 border-r-neutral-200'
