@@ -8,8 +8,8 @@ import { cn } from '@/lib/utils';
  */
 export const dropdownMenuVariants = cva(
   cn(
-    'absolute top-full left-0 w-full mt-0.5',
-    'bg-white border border-neutral-200 rounded-sm',
+    'absolute top-full left-0 min-w-full mt-dropdown-menu-gap',
+    'bg-white border border-neutral-200 rounded-dropdown',
     'shadow z-50',
     'overflow-hidden'
   ),
