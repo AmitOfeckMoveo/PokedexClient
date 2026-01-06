@@ -126,6 +126,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
         tooltip: "4px",
       },
+      borderWidth: {
+        'tooltip-arrow-width': '6px', // Half of 12px total width
+        'tooltip-arrow-height': '7px', // Arrow height from Figma
+      },
       spacing: {
         'tooltip-gap': '4px',
         'tooltip-sm-y': '4px',
@@ -133,9 +137,10 @@ export default {
         'tooltip-md-y': '5px',
         'tooltip-md-x': '10px',
         'tooltip-arrow': '6px',
+        'tooltip-safe': '1rem', // Safe padding from viewport edges
       },
       maxWidth: {
-        tooltip: '325px',
+        tooltip: '345px', // Match Figma specification exactly
       },
       keyframes: {
         "accordion-down": {

@@ -25,7 +25,7 @@ export const TooltipWrapper = React.forwardRef<HTMLSpanElement, TooltipWrapperPr
             "mb-tooltip-gap",
             "opacity-0 group-hover:opacity-100 transition-opacity",
             "pointer-events-none z-10",
-            "w-max max-w-tooltip"
+            "w-max overflow-visible"
           )}
         >
           <Tooltip {...tooltipProps}>

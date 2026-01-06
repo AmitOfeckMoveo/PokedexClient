@@ -11,7 +11,8 @@ import { cn } from '@/lib/utils';
 export const tooltipVariants = cva(
   cn(
     'rounded-tooltip inline-block whitespace-normal text-center relative',
-    'max-w-tooltip'
+    'overflow-visible',
+    'max-w-[min(345px,calc(100vw-2rem))]'
   ),
   {
     variants: {
@@ -46,22 +47,22 @@ export const tooltipVariants = cva(
  */
 export const tooltipArrowVariants = cva(
   cn(
-    'absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full',
-    'w-0 h-0',
+    'absolute top-full left-1/2 -translate-x-1/2',
+    'w-0 h-0 z-10',
     'border-l-transparent border-r-transparent'
   ),
   {
     variants: {
       tone: {
-        dark: 'border-t-neutrals-1000',
+        dark: 'border-t-[#43464F]', // neutrals-1000 from Figma
         light: cn(
           'border-t-white',
           'border-l-neutral-200 border-r-neutral-200'
         ),
       },
       size: {
-        sm: 'border-l-tooltip-arrow border-r-tooltip-arrow border-t-tooltip-arrow',
-        md: 'border-l-tooltip-arrow border-r-tooltip-arrow border-t-tooltip-arrow',
+        sm: 'border-l-[6px] border-r-[6px] border-t-[7px]', // 12px wide × 7px tall from Figma
+        md: 'border-l-[6px] border-r-[6px] border-t-[7px]', // 12px wide × 7px tall from Figma
       },
     },
     defaultVariants: {
