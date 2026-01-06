@@ -85,6 +85,7 @@ export default {
           500: "#2D3033",
           600: "#71787F",
           700: "#313336",
+          1000: "#000000",
         },
         extended: {
           purple: {
@@ -140,6 +141,12 @@ export default {
         "dropdown-trigger-px": "12px",
         "dropdown-trigger-py": "8px",
         "dropdown-trigger-gap": "16px",
+        "tab-pills-px": "16px",
+        "tab-pills-py": "8px",
+        "tab-pills-gap": "4px",
+        "tab-underline-px": "8px",
+        "tab-underline-py": "4px",
+        "tab-underline-gap": "8px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -147,9 +154,12 @@ export default {
         sm: "calc(var(--radius) - 4px)",
         button: "4px",
         dropdown: "8px",
+        "tab-pills": "4px",
       },
       height: {
-        'input': '2.375rem', 
+        'input': '2.375rem',
+        'tab-pills-height': '32px',
+        'tab-underline-height': '38px',
       },
       keyframes: {
         "accordion-down": {
