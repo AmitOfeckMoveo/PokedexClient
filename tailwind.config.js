@@ -27,6 +27,7 @@ export default {
         "subheading": ["16px", { lineHeight: "24px" }],
         "body": ["14px", { lineHeight: "22px" }],
         "caption": ["12px", { lineHeight: "19px" }],
+        "sub-body": ["12px", { lineHeight: "18px" }],
         "xsmall": ["11px", { lineHeight: "16px" }],
         "button-big": ["16px", { lineHeight: "20px" }],
         "button-small": ["14px", { lineHeight: "14px" }],
@@ -85,6 +86,7 @@ export default {
           500: "#2D3033",
           600: "#71787F",
           700: "#313336",
+          1000: "#43464F",
         },
         extended: {
           purple: {
@@ -139,6 +141,23 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        tooltip: "4px",
+      },
+      borderWidth: {
+        'tooltip-arrow-width': '6px', // Half of 12px total width
+        'tooltip-arrow-height': '7px', // Arrow height from Figma
+      },
+      spacing: {
+        'tooltip-gap': '4px',
+        'tooltip-sm-y': '4px',
+        'tooltip-sm-x': '8px',
+        'tooltip-md-y': '5px',
+        'tooltip-md-x': '10px',
+        'tooltip-arrow': '6px',
+        'tooltip-safe': '1rem', // Safe padding from viewport edges
+      },
+      maxWidth: {
+        tooltip: '345px', // Match Figma specification exactly
       },
       keyframes: {
         "accordion-down": {
