@@ -8,7 +8,8 @@ import { cn } from '@/lib/utils';
  */
 export const dropdownItemVariants = cva(
   cn(
-    'w-full px-dropdown-item-px py-dropdown-item-py',
+    'w-full',
+    'pt-dropdown-item-py-top pr-dropdown-item-px-right pb-dropdown-item-py-bottom pl-dropdown-item-px-left',
     'body-regular text-neutral-700',
     'whitespace-normal text-left',
     'cursor-pointer transition-colors',

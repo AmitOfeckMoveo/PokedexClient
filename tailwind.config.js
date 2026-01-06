@@ -206,6 +206,13 @@ export default {
         "dropdown-menu-gap": "2px",
         "dropdown-item-px": "12px",
         "dropdown-item-py": "6px",
+        "dropdown-item-py-top": "9px",
+        "dropdown-item-py-bottom": "9px",
+        "dropdown-item-px-left": "8px",
+        "dropdown-item-px-right": "6px",
+        "dropdown-trigger-px": "12px",
+        "dropdown-trigger-py": "8px",
+        "dropdown-trigger-gap": "16px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -219,6 +226,7 @@ export default {
         "hp-icon-sm": "1.5px",
         "hp-icon-md": "2px",
         dropdown: "4px",
+        dropdown: "8px",
       },
       height: {
         'input': '2.375rem',
