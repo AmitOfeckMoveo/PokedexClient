@@ -130,12 +130,16 @@ export default {
         "spinner-size-sm": "16px",
         "spinner-size-md": "24px",
         "spinner-size-lg": "32px",
+        "dropdown-menu-gap": "2px",
+        "dropdown-item-px": "12px",
+        "dropdown-item-py": "6px",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        button: "4px", 
+        button: "4px",
+        dropdown: "4px",
       },
       height: {
         'input': '2.375rem', 
