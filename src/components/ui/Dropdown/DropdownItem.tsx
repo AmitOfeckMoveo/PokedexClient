@@ -3,9 +3,7 @@ import { Text } from '../Text';
 import { dropdownItemVariants } from '@/lib/theme/components/dropdown-item';
 
 /**
- * DropdownItem - Internal component
- * Responsible for rendering a single dropdown option
- * 
+ 
  * Responsibilities:
  * - Selected state styling
  * - Disabled state handling
