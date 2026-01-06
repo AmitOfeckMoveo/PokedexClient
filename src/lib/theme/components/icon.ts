@@ -13,7 +13,7 @@ export const iconVariants = cva(
   {
     variants: {
       size: {
-        auto: 'w-[1em] h-[1em]',
+        auto: 'w-icon-size-auto h-icon-size-auto',
         sm: 'w-icon-size-sm h-icon-size-sm',
         md: 'w-icon-size-md h-icon-size-md',
         lg: 'w-icon-size-lg h-icon-size-lg',
