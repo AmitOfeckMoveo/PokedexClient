@@ -17,10 +17,6 @@ export interface PokemonHPProps
 }
 
 /**
- * PokemonHP Component
- *
- * Displays HP value with optional label and electric bolt icon.
- * Pixel-perfect match to Figma specifications.
  *
  * @example
  * <PokemonHP value={70} />
@@ -44,21 +40,19 @@ export const PokemonHP = React.forwardRef<HTMLDivElement, PokemonHPProps>(
             HP
           </Text>
         )}
-        <span 
+        <Text
+          color="primary-500"
+          as="span"
           className={cn(
-            'font-mulish font-normal text-primary-500',
+            'font-mulish font-normal',
             pokemonHpTypographyMap[size]
           )}
         >
           {value}
-        </span>
+        </Text>
         <Icon
           name="electric-bolt"
-          className={cn(
-            size === 'sm' ? 'w-hp-icon-sm h-hp-icon-sm' : 'w-hp-icon-md h-hp-icon-md',
-            pokemonHpIconVariants[size],
-            'flex-shrink-0'
-          )}
+          className={pokemonHpIconVariants[size]}
         />
       </div>
     );

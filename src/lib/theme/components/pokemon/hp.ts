@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 export const pokemonHpVariants = cva(
   cn(
-    'inline-flex items-center',
+    'inline-flex items-end',
     'bg-transparent'
   ),
   {
@@ -36,16 +36,22 @@ export const pokemonHpTypographyMap = {
 
 export const pokemonHpIconVariants = {
   sm: cn(
+    'w-hp-icon-sm',
+    'h-hp-icon-sm',
     'rounded-hp-icon-sm',
     'border-hp-icon-sm',
     'border-solid',
-    'border-hp-icon'
+    'border-hp-icon',
+    'flex-shrink-0'
   ),
   md: cn(
+    'w-hp-icon-md',
+    'h-hp-icon-md',
     'rounded-hp-icon-md',
     'border-hp-icon-md',
     'border-solid',
-    'border-hp-icon'
+    'border-hp-icon',
+    'flex-shrink-0'
   ),
 } as const;
 
