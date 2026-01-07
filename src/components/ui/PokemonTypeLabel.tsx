@@ -10,35 +10,29 @@ export interface PokemonTypeLabelProps
 }
 
 /**
- * Pokemon Type to Tailwind Token Mapping
- * Maps PokemonType to Tailwind class names using tokens from tailwind.config.js
  */
 const pokemonTypeClassMap: Record<PokemonType, string> = {
-  Normal: 'bg-pokemonTypes-normal-bg text-pokemonTypes-normal-text border-neutral-200',
-  Water: 'bg-pokemonTypes-water-bg text-pokemonTypes-water-text border-neutral-200',
-  Fire: 'bg-pokemonTypes-fire-bg text-pokemonTypes-fire-text border-neutral-200',
-  Grass: 'bg-pokemonTypes-grass-bg text-pokemonTypes-grass-text border-neutral-200',
-  Electric: 'bg-pokemonTypes-electric-bg text-pokemonTypes-electric-text border-neutral-200',
-  Ice: 'bg-pokemonTypes-ice-bg text-pokemonTypes-ice-text border-neutral-200',
-  Fighting: 'bg-pokemonTypes-fighting-bg text-pokemonTypes-fighting-text border-neutral-200',
-  Poison: 'bg-pokemonTypes-poison-bg text-pokemonTypes-poison-text border-neutral-200',
-  Ground: 'bg-pokemonTypes-ground-bg text-pokemonTypes-ground-text border-neutral-200',
-  Flying: 'bg-pokemonTypes-flying-bg text-pokemonTypes-flying-text border-neutral-200',
-  Psychic: 'bg-pokemonTypes-psychic-bg text-pokemonTypes-psychic-text border-neutral-200',
-  Bug: 'bg-pokemonTypes-bug-bg text-pokemonTypes-bug-text border-neutral-200',
-  Rock: 'bg-pokemonTypes-rock-bg text-pokemonTypes-rock-text border-neutral-200',
-  Ghost: 'bg-pokemonTypes-ghost-bg text-pokemonTypes-ghost-text border-neutral-200',
-  Dragon: 'bg-pokemonTypes-dragon-bg text-pokemonTypes-dragon-text border-neutral-200',
-  Steel: 'bg-pokemonTypes-steel-bg text-pokemonTypes-steel-text border-neutral-200',
-  Dark: 'bg-pokemonTypes-dark-bg text-pokemonTypes-dark-text border-neutral-200',
-  Fairy: 'bg-pokemonTypes-fairy-bg text-pokemonTypes-fairy-text border-neutral-200',
+  Normal: 'bg-gray-50 text-gray-500 border-neutral-200',
+  Water: 'bg-blue-50 text-blue-500 border-neutral-200',
+  Fire: 'bg-red-50 text-red-500 border-neutral-200',
+  Grass: 'bg-green-50 text-green-500 border-neutral-200',
+  Electric: 'bg-yellow-50 text-yellow-500 border-neutral-200',
+  Ice: 'bg-teal-50 text-teal-500 border-neutral-200',
+  Fighting: 'bg-red-100 text-red-600 border-neutral-200',
+  Poison: 'bg-purple-50 text-purple-500 border-neutral-200',
+  Ground: 'bg-yellow-100 text-yellow-600 border-neutral-200',
+  Flying: 'bg-purple-100 text-purple-600 border-neutral-200',
+  Psychic: 'bg-pink-50 text-pink-500 border-neutral-200',
+  Bug: 'bg-green-100 text-green-600 border-neutral-200',
+  Rock: 'bg-yellow-200 text-yellow-700 border-neutral-200',
+  Ghost: 'bg-purple-200 text-purple-700 border-neutral-200',
+  Dragon: 'bg-red-200 text-red-700 border-neutral-200',
+  Steel: 'bg-gray-100 text-purple-800 border-neutral-200',
+  Dark: 'bg-gray-200 text-gray-600 border-neutral-200',
+  Fairy: 'bg-pink-100 text-pink-600 border-neutral-200',
 };
 
 /**
- * PokemonTypeLabel Component
- * 
- * Uses Tailwind tokens directly from tailwind.config.js
- * Pure and stateless - renders a single label
  */
 export const PokemonTypeLabel = React.forwardRef<HTMLSpanElement, PokemonTypeLabelProps>(
   ({ type, size = 'md', className, ...props }, ref) => {

@@ -112,79 +112,57 @@ export default {
           disabled: "linear-gradient(to right, #5BE2F7, #50DDA0)",
           fainted: "linear-gradient(to right, #F75B5B, #DD7150)",
         },
-        pokemonTypes: {
-          normal: {
-            bg: "#F0F0E8",
-            text: "#A8A878",
-          },
-          water: {
-            bg: "#DFE9FF",
-            text: "#6890F0",
-          },
-          fire: {
-            bg: "#FFDFDF",
-            text: "#F25D5B",
-          },
-          grass: {
-            bg: "#F0FFED",
-            text: "#41A83F",
-          },
-          electric: {
-            bg: "#FFF9DF",
-            text: "#C79B23",
-          },
-          ice: {
-            bg: "#E8F8F8",
-            text: "#38B4B4",
-          },
-          fighting: {
-            bg: "#FFDEDE",
-            text: "#C03028",
-          },
-          poison: {
-            bg: "#E2DFFF",
-            text: "#683FA8",
-          },
-          ground: {
-            bg: "#FFF3DF",
-            text: "#B6922E",
-          },
-          flying: {
-            bg: "#EBE8FF",
-            text: "#9778F3",
-          },
-          psychic: {
-            bg: "#FFE5ED",
-            text: "#F85888",
-          },
-          bug: {
-            bg: "#F5F7DF",
-            text: "#95A413",
-          },
-          rock: {
-            bg: "#F5F0DF",
-            text: "#B0982F",
-          },
-          ghost: {
-            bg: "#E5DFEF",
-            text: "#705898",
-          },
-          dragon: {
-            bg: "#FFE4F8",
-            text: "#F8383B",
-          },
-          steel: {
-            bg: "#ECECF0",
-            text: "#6563CC",
-          },
-          dark: {
-            bg: "#EEE5E0",
-            text: "#705848",
-          },
-          fairy: {
-            bg: "#FFE8ED",
-            text: "#DB5371",
-          },
+        blue: {
+          50: "#DFE9FF",
+          500: "#6890F0",
+        },
+        red: {
+          50: "#FFDFDF",
+          100: "#FFDEDE",
+          200: "#FFE4F8",
+          500: "#F25D5B",
+          600: "#C03028",
+          700: "#F8383B",
+        },
+        green: {
+          50: "#F0FFED",
+          100: "#F5F7DF",
+          500: "#41A83F",
+          600: "#95A413",
+        },
+        yellow: {
+          50: "#FFF9DF",
+          100: "#FFF3DF",
+          200: "#F5F0DF",
+          500: "#C79B23",
+          600: "#B6922E",
+          700: "#B0982F",
+        },
+        purple: {
+          50: "#E2DFFF",
+          100: "#EBE8FF",
+          200: "#E5DFEF",
+          500: "#683FA8",
+          600: "#9778F3",
+          700: "#705898",
+          800: "#6563CC",
+        },
+        pink: {
+          50: "#FFE5ED",
+          100: "#FFE8ED",
+          500: "#F85888",
+          600: "#DB5371",
+        },
+        gray: {
+          50: "#F0F0E8",
+          100: "#ECECF0",
+          200: "#EEE5E0",
+          500: "#A8A878",
+          600: "#705848",
+        },
+        teal: {
+          50: "#E8F8F8",
+          500: "#38B4B4",
         },
       },
       backgroundImage: {

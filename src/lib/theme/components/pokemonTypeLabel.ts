@@ -3,9 +3,6 @@ import { cn } from '@/lib/utils';
 
 /**
  * Pokemon Type Label Variants
- * 
- * UI-only variants: size, padding, typography, border-radius
- * No colors, no Pokémon-specific logic
  */
 export const pokemonTypeVariants = cva(
   cn(
@@ -22,7 +19,7 @@ export const pokemonTypeVariants = cva(
           'rounded-sm'
         ),
         md: cn(
-          'px-1 py-1', // px-1 = 4px to match Figma padding
+          'px-1 py-1', 
           'body-medium',
           'rounded-md'
         ),
