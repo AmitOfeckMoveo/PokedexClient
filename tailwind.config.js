@@ -88,6 +88,7 @@ export default {
           600: "#71787F",
           700: "#313336",
         },
+        "hp-icon": "#F3F3F3",
         extended: {
           purple: {
             DEFAULT: "#A88FEF",
@@ -184,12 +185,24 @@ export default {
         "spinner-size-sm": "16px",
         "spinner-size-md": "24px",
         "spinner-size-lg": "32px",
+        "hp-badge-height-sm": "14px",
+        "hp-badge-height-md": "22px",
+        "hp-badge-px-sm": "3px",
+        "hp-badge-px-md": "4px",
+        "hp-badge-gap-sm": "4px",
+        "hp-badge-gap-md": "4px",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        button: "4px", 
+        button: "4px",
+        "hp-icon-sm": "9.75px",
+        "hp-icon-md": "13px",
+      },
+      borderWidth: {
+        "hp-icon-sm": "1.5px",
+        "hp-icon-md": "2px",
       },
       height: {
         'input': '2.375rem', 
@@ -199,12 +212,16 @@ export default {
         'icon-size-md': '1.25rem', 
         'icon-size-lg': '1.5rem',
         'icon-size-auto': '1em',  
+        'hp-icon-sm': '14px',
+        'hp-icon-md': '20px',
       },
       height: {
         'icon-size-sm': '1rem',  
         'icon-size-md': '1.25rem', 
         'icon-size-lg': '1.5rem',
         'icon-size-auto': '1em',  
+        'hp-icon-sm': '14px',
+        'hp-icon-md': '20px',
       },
       keyframes: {
         "accordion-down": {
