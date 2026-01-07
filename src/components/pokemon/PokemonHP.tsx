@@ -32,9 +32,9 @@ export const PokemonHP = React.forwardRef<HTMLDivElement, PokemonHPProps>(
           {...props}
         >
           {showLabel && (
-            <span className="font-mulish text-caption-bold text-primary-500 leading-none">
+            <Text typography="caption-bold" color="primary-500" as="span">
               HP
-            </span>
+            </Text>
           )}
   
           <span
