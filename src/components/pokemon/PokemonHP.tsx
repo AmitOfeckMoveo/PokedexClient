@@ -44,13 +44,14 @@ export const PokemonHP = React.forwardRef<HTMLDivElement, PokemonHPProps>(
             HP
           </Text>
         )}
-        <Text 
-          color="primary-500" 
-          as="span"
-          className={cn(pokemonHpTypographyMap[size])}
+        <span 
+          className={cn(
+            'font-mulish font-normal text-primary-500',
+            pokemonHpTypographyMap[size]
+          )}
         >
           {value}
-        </Text>
+        </span>
         <Icon
           name="electric-bolt"
           className={cn(
