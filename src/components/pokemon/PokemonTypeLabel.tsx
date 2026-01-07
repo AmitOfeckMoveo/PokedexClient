@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { pokemonTypeVariants, type PokemonTypeVariants } from '@/lib/theme/components/pokemonTypeLabel';
+import { pokemonTypeVariants, type PokemonTypeVariants } from '@/lib/theme/components/pokemon/typeLabel';
 import type { PokemonType } from '@/types/pokemon';
 
 export interface PokemonTypeLabelProps
@@ -11,7 +11,7 @@ export interface PokemonTypeLabelProps
 
 /**
  */
-const pokemonTypeClassMap: Record<PokemonType, string> = {
+export const pokemonTypeClassMap: Record<PokemonType | 'remaining', string> = {
   Normal: 'bg-gray-50 text-gray-500 border-neutral-200',
   Water: 'bg-blue-50 text-blue-500 border-neutral-200',
   Fire: 'bg-red-50 text-red-500 border-neutral-200',
@@ -30,6 +30,7 @@ const pokemonTypeClassMap: Record<PokemonType, string> = {
   Steel: 'bg-gray-100 text-purple-800 border-neutral-200',
   Dark: 'bg-gray-200 text-gray-600 border-neutral-200',
   Fairy: 'bg-pink-100 text-pink-600 border-neutral-200',
+  remaining: 'bg-white text-neutral-500 border-neutral-200',
 };
 
 /**
