@@ -112,6 +112,80 @@ export default {
           disabled: "linear-gradient(to right, #5BE2F7, #50DDA0)",
           fainted: "linear-gradient(to right, #F75B5B, #DD7150)",
         },
+        pokemonTypes: {
+          normal: {
+            bg: "#F0F0E8",
+            text: "#A8A878",
+          },
+          water: {
+            bg: "#DFE9FF",
+            text: "#6890F0",
+          },
+          fire: {
+            bg: "#FFDFDF",
+            text: "#F25D5B",
+          },
+          grass: {
+            bg: "#F0FFED",
+            text: "#41A83F",
+          },
+          electric: {
+            bg: "#FFF9DF",
+            text: "#C79B23",
+          },
+          ice: {
+            bg: "#E8F8F8",
+            text: "#38B4B4",
+          },
+          fighting: {
+            bg: "#FFDEDE",
+            text: "#C03028",
+          },
+          poison: {
+            bg: "#E2DFFF",
+            text: "#683FA8",
+          },
+          ground: {
+            bg: "#FFF3DF",
+            text: "#B6922E",
+          },
+          flying: {
+            bg: "#EBE8FF",
+            text: "#9778F3",
+          },
+          psychic: {
+            bg: "#FFE5ED",
+            text: "#F85888",
+          },
+          bug: {
+            bg: "#F5F7DF",
+            text: "#95A413",
+          },
+          rock: {
+            bg: "#F5F0DF",
+            text: "#B0982F",
+          },
+          ghost: {
+            bg: "#E5DFEF",
+            text: "#705898",
+          },
+          dragon: {
+            bg: "#FFE4F8",
+            text: "#F8383B",
+          },
+          steel: {
+            bg: "#ECECF0",
+            text: "#6563CC",
+          },
+          dark: {
+            bg: "#EEE5E0",
+            text: "#705848",
+          },
+          fairy: {
+            bg: "#FFE8ED",
+            text: "#DB5371",
+          },
+        },
       },
       backgroundImage: {
         "gradient-default": "linear-gradient(to right, #5BE2F7, #50DDA0)",
