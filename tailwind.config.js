@@ -232,6 +232,12 @@ export default {
         'input': '2.375rem',
         'table-header-height': '48px',
         'table-row-height': '72px',
+        'dropdown-trigger-height': '38px',
+        'icon-size-sm': '1rem',  
+        'icon-size-md': '1.25rem', 
+        'icon-size-lg': '1.5rem',
+        'icon-size-auto': '1em',
+        'icon-size-dropdown': '13.2px',
       },
       width: {
         'icon-size-sm': '1rem',   
