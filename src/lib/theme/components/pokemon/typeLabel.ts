@@ -4,6 +4,8 @@ import type { PokemonType } from '@/types/pokemon';
 
 /**
  * Pokemon Type Label Variants
+ * Handles layout, spacing, border, and radius only.
+ * Typography is applied separately based on variant.
  */
 export const pokemonTypeVariants = cva(
   cn(
@@ -16,12 +18,10 @@ export const pokemonTypeVariants = cva(
       size: {
         sm: cn(
           'px-2 py-0.5',
-          'caption-medium',
           'rounded-sm'
         ),
         md: cn(
           'px-1 py-1', 
-          'body-medium',
           'rounded-md'
         ),
       },
@@ -33,6 +33,21 @@ export const pokemonTypeVariants = cva(
 );
 
 export type PokemonTypeVariants = VariantProps<typeof pokemonTypeVariants>;
+
+/**
+ * Pokemon Type Typography Map
+ * Maps size to typography token classes for regular types
+ */
+export const pokemonTypeTypographyMap = {
+  sm: 'caption-medium',
+  md: 'body-medium',
+} as const;
+
+/**
+ * Remaining Indicator Typography
+ * Always uses indicator-medium regardless of size (matches Figma: 10px/19px)
+ */
+export const remainingIndicatorTypography = 'indicator-medium';
 
 /**
  * Pokemon Type Class Map
@@ -57,6 +72,6 @@ export const pokemonTypeClassMap: Record<PokemonType | 'remaining', string> = {
   Steel: 'bg-gray-100 text-purple-800 border-neutral-200',
   Dark: 'bg-gray-200 text-gray-600 border-neutral-200',
   Fairy: 'bg-pink-100 text-pink-600 border-neutral-200',
-  remaining: 'bg-white text-neutral-500 border-neutral-200',
+  remaining: 'bg-neutrals-50 text-neutrals-500 border-neutral-200',
 };
 

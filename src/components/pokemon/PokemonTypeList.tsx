@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { PokemonTypeLabel } from '@/components/pokemon/PokemonTypeLabel';
-import { pokemonTypeVariants, pokemonTypeClassMap } from '@/lib/theme/components/pokemon/typeLabel';
 import { pokemonTypeListVariants } from '@/lib/theme/components/pokemon/typeList';
 import type { PokemonType } from '@/types/pokemon';
 
@@ -38,14 +37,12 @@ export const PokemonTypeList = React.forwardRef<HTMLDivElement, PokemonTypeListP
           />
         ))}
         {remainingCount > 0 && (
-          <span
-            className={cn(
-              pokemonTypeVariants({ size }),
-              pokemonTypeClassMap.remaining
-            )}
-          >
-            +{remainingCount}
-          </span>
+          <PokemonTypeLabel
+            key="remaining"
+            type="remaining"
+            count={remainingCount}
+            size={size}
+          />
         )}
       </div>
     );

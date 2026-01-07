@@ -29,7 +29,8 @@ export default {
         "caption": ["12px", { lineHeight: "19px" }],
         "xsmall": ["11px", { lineHeight: "16px" }],
         "button-big": ["16px", { lineHeight: "24px" }], 
-        "button-small": ["14px", { lineHeight: "22px" }], 
+        "button-small": ["14px", { lineHeight: "22px" }],
+        "indicator": ["10px", { lineHeight: "19px" }], 
       },
       fontWeight: {
         bold: "700",
@@ -78,6 +79,7 @@ export default {
         },
         neutrals: {
           white: "#FFFFFF",
+          50: "#F6F6F6",
           100: "#F2F5F7",
           200: "#A8AEB5",
           300: "#5A6066",
