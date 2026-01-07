@@ -155,13 +155,15 @@ export default {
         'icon-size-sm': '1rem',   
         'icon-size-md': '1.25rem', 
         'icon-size-lg': '1.5rem',
-        'icon-size-auto': '1em',  
+        'icon-size-auto': '1em',
+        'icon-size-dropdown': '7.78px',
       },
       height: {
         'icon-size-sm': '1rem',  
         'icon-size-md': '1.25rem', 
         'icon-size-lg': '1.5rem',
-        'icon-size-auto': '1em',  
+        'icon-size-auto': '1em',
+        'icon-size-dropdown': '13.2px',
       },
       keyframes: {
         "accordion-down": {

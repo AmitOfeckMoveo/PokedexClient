@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Text } from '../Text';
+import { Icon, type IconName } from '../Icon';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownItem } from './DropdownItem';
 import { useDropdown } from '@/hooks/useDropdown';
@@ -21,6 +22,7 @@ export interface DropdownProps<T = string> {
   onChange: (value: T) => void;
   disabled?: boolean;
   className?: string;
+  icon?: IconName;
 }
 
 /**
@@ -33,6 +35,7 @@ export function Dropdown<T = string>({
   onChange,
   disabled = false,
   className,
+  icon,
 }: DropdownProps<T>) {
   const {
     isOpen,
@@ -64,9 +67,18 @@ export function Dropdown<T = string>({
         aria-haspopup="listbox"
         type="button"
       >
-        <Text typography="body-regular" color="neutral-700" as="span">
+        <Text typography="body-regular" color="neutrals-400" as="span">
           {finalDisplayLabel}
         </Text>
+        {icon && (
+          <Icon
+            name={icon}
+            className={cn(
+              'w-icon-size-dropdown h-icon-size-dropdown text-neutrals-400 transition-transform',
+              isOpen && 'rotate-180'
+            )}
+          />
+        )}
       </button>
 
       {/* Dropdown Menu - Positioned relative to trigger */}
