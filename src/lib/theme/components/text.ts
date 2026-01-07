@@ -53,6 +53,8 @@ export const textVariants = cva('', {
       'neutral-500': 'text-neutral-500',
       'neutral-600': 'text-neutral-600',
       'neutral-700': 'text-neutral-700',
+      // Neutrals (with 's') - design system tokens
+      'neutrals-400': 'text-neutrals-400',
       // State colors
       'success-green': 'text-success-green',
       'warning-yellow': 'text-warning-yellow',

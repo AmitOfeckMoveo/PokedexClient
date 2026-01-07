@@ -8,10 +8,11 @@ import { cn } from '@/lib/utils';
  */
 export const dropdownTriggerVariants = cva(
   cn(
-    'inline-flex items-center justify-center',
+    'inline-flex items-center',
     'rounded-dropdown font-normal transition-colors',
     'bg-white border border-neutral-200',
-    'text-neutral-700',
+    'text-neutrals-400',
+    'h-[38px]',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
     'disabled:pointer-events-none disabled:bg-white disabled:border-neutral-300 disabled:text-neutral-300',
     'gap-dropdown-trigger-gap',

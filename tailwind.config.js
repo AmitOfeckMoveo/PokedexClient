@@ -246,6 +246,7 @@ export default {
         'image-size-lg': '80px',
         'table-name-column-width': '300px',
         'table-description-max-width': '450px',
+        'icon-size-dropdown': '7.78px',
       },
       height: {
         'icon-size-sm': '1rem',  
@@ -258,6 +259,8 @@ export default {
         'image-size-sm': '48px',
         'image-size-md': '54px',
         'image-size-lg': '80px',
+
+        'icon-size-dropdown': '13.2px',
       },
       keyframes: {
         "accordion-down": {
