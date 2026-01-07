@@ -26,8 +26,8 @@ export const pokemonHpTypographyMap = {
 
 export const pokemonHpIconVariants = {
   sm: cn(
-    'w-hp-icon-sm',
-    'h-hp-icon-sm',
+    '!w-hp-icon-sm',
+    '!h-hp-icon-sm',
     'rounded-hp-icon-sm',
     'border-hp-icon-sm',
     'border-solid',
@@ -35,8 +35,8 @@ export const pokemonHpIconVariants = {
     'flex-shrink-0'
   ),
   md: cn(
-    'w-hp-icon-md',
-    'h-hp-icon-md',
+    '!w-hp-icon-md',
+    '!h-hp-icon-md',
     'rounded-hp-icon-md',
     'border-hp-icon-md',
     'border-solid',
