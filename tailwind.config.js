@@ -30,7 +30,9 @@ export default {
         "xsmall": ["11px", { lineHeight: "16px" }],
         "button-big": ["16px", { lineHeight: "24px" }], 
         "button-small": ["14px", { lineHeight: "22px" }],
-        "indicator": ["10px", { lineHeight: "19px" }], 
+        "indicator": ["10px", { lineHeight: "19px" }],
+        "hp-value-sm": ["14px", { lineHeight: "22px" }],
+        "hp-value-md": ["20px", { lineHeight: "27px" }],
       },
       fontWeight: {
         bold: "700",

@@ -47,10 +47,7 @@ export const PokemonHP = React.forwardRef<HTMLDivElement, PokemonHPProps>(
         <Text 
           color="primary-500" 
           as="span"
-          className={cn(
-            'font-mulish font-normal',
-            pokemonHpTypographyMap[size]
-          )}
+          className={cn(pokemonHpTypographyMap[size])}
         >
           {value}
         </Text>

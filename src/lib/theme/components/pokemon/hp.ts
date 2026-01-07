@@ -30,8 +30,8 @@ export const pokemonHpVariants = cva(
 export type PokemonHpVariants = VariantProps<typeof pokemonHpVariants>;
 
 export const pokemonHpTypographyMap = {
-  sm: 'text-[14px] leading-[22px]',
-  md: 'text-[20px] leading-[27px]',
+  sm: 'text-hp-value-sm',
+  md: 'text-hp-value-md',
 } as const;
 
 export const pokemonHpIconVariants = {
