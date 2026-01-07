@@ -10,7 +10,6 @@ import type { PokemonType } from '@/types/pokemon';
 export const pokemonTypeVariants = cva(
   cn(
     'inline-flex items-center justify-center',
-    'font-medium',
     'border'
   ),
   {

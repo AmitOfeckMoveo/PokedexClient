@@ -9,11 +9,7 @@ import { cn } from '@/lib/utils';
 export const pokemonTypeListVariants = cva(
   cn(
     'inline-flex items-center gap-1'
-  ),
-  {
-    variants: {},
-    defaultVariants: {},
-  }
+  )
 );
 
 export type PokemonTypeListVariants = VariantProps<typeof pokemonTypeListVariants>;
