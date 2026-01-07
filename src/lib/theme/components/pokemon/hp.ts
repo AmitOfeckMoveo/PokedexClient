@@ -2,30 +2,20 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 export const pokemonHpVariants = cva(
-  cn(
-    'inline-flex items-end',
-    'bg-transparent'
-  ),
-  {
-    variants: {
-      size: {
-        sm: cn(
-          'h-hp-badge-height-sm',
-          'px-hp-badge-px-sm',
-          'gap-hp-badge-gap-sm'
-        ),
-        md: cn(
-          'h-hp-badge-height-md',
-          'px-hp-badge-px-md',
-          'gap-hp-badge-gap-md'
-        ),
+    'inline-flex items-center bg-transparent',
+    {
+      variants: {
+        size: {
+          sm: 'h-hp-badge-height-sm px-hp-badge-px-sm gap-hp-badge-gap-sm',
+          md: 'h-hp-badge-height-md px-hp-badge-px-md gap-hp-badge-gap-md',
+        },
       },
-    },
-    defaultVariants: {
-      size: 'md',
-    },
-  }
-);
+      defaultVariants: {
+        size: 'md',
+      },
+    }
+  );
+  
 
 export type PokemonHpVariants = VariantProps<typeof pokemonHpVariants>;
 

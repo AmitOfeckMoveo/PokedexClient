@@ -24,40 +24,37 @@ export interface PokemonHPProps
  * <PokemonHP value={70} size="sm" />
  */
 export const PokemonHP = React.forwardRef<HTMLDivElement, PokemonHPProps>(
-  ({ value, size = 'md', showLabel = false, className, ...props }, ref) => {
-
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          pokemonHpVariants({ size }),
-          className
-        )}
-        {...props}
-      >
-        {showLabel && (
-          <Text typography="caption-bold" color="primary-500" as="span">
-            HP
-          </Text>
-        )}
-        <Text
-          color="primary-500"
-          as="span"
-          className={cn(
-            'font-mulish font-normal',
-            pokemonHpTypographyMap[size]
-          )}
+    ({ value, size = 'md', showLabel = false, className, ...props }, ref) => {
+      return (
+        <div
+          ref={ref}
+          className={cn(pokemonHpVariants({ size }), className)}
+          {...props}
         >
-          {value}
-        </Text>
-        <Icon
-          name="electric-bolt"
-          className={pokemonHpIconVariants[size]}
-        />
-      </div>
-    );
-  }
-);
+          {showLabel && (
+            <span className="font-mulish text-caption-bold text-primary-500 leading-none">
+              HP
+            </span>
+          )}
+  
+          <span
+            className={cn(
+              'font-mulish font-normal text-primary-500 leading-none',
+              pokemonHpTypographyMap[size]
+            )}
+          >
+            {value}
+          </span>
+  
+          <Icon
+            name="electric-bolt"
+            className={pokemonHpIconVariants[size]}
+          />
+        </div>
+      );
+    }
+  );
+  
 
 PokemonHP.displayName = 'PokemonHP';
 
