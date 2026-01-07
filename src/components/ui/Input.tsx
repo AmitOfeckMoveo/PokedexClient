@@ -2,6 +2,7 @@ import * as React from 'react';
 import { type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { inputVariants } from '@/lib/theme/components/input';
+import { Icon } from './Icon';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
@@ -21,6 +22,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         inputVariants({ 
           state: inputState
         }),
+        "group",
         className
       )}>
         <input

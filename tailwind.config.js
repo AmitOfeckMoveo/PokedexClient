@@ -140,6 +140,18 @@ export default {
       height: {
         'input': '2.375rem', 
       },
+      width: {
+        'icon-size-sm': '1rem',   
+        'icon-size-md': '1.25rem', 
+        'icon-size-lg': '1.5rem',
+        'icon-size-auto': '1em',  
+      },
+      height: {
+        'icon-size-sm': '1rem',  
+        'icon-size-md': '1.25rem', 
+        'icon-size-lg': '1.5rem',
+        'icon-size-auto': '1em',  
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
