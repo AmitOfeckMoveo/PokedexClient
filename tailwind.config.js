@@ -149,7 +149,13 @@ export default {
         dropdown: "8px",
       },
       height: {
-        'input': '2.375rem', 
+        'input': '2.375rem',
+        'dropdown-trigger-height': '38px',
+        'icon-size-sm': '1rem',  
+        'icon-size-md': '1.25rem', 
+        'icon-size-lg': '1.5rem',
+        'icon-size-auto': '1em',
+        'icon-size-dropdown': '13.2px',
       },
       width: {
         'icon-size-sm': '1rem',   
@@ -157,13 +163,6 @@ export default {
         'icon-size-lg': '1.5rem',
         'icon-size-auto': '1em',
         'icon-size-dropdown': '7.78px',
-      },
-      height: {
-        'icon-size-sm': '1rem',  
-        'icon-size-md': '1.25rem', 
-        'icon-size-lg': '1.5rem',
-        'icon-size-auto': '1em',
-        'icon-size-dropdown': '13.2px',
       },
       keyframes: {
         "accordion-down": {
