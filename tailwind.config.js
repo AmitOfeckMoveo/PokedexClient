@@ -91,6 +91,7 @@ export default {
           700: "#313336",
         },
         "hp-icon": "#F3F3F3",
+        "pokemon-avatar-bg": "#EBEFF6",
         extended: {
           purple: {
             DEFAULT: "#A88FEF",
@@ -193,6 +194,8 @@ export default {
         "hp-badge-px-md": "4px",
         "hp-badge-gap-sm": "4px",
         "hp-badge-gap-md": "4px",
+        "pokemon-name-gap-text": "16px",
+        "pokemon-name-gap-icon": "8px",
       },
       borderRadius: {
         lg: "var(--radius)",

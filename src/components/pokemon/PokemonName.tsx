@@ -34,7 +34,6 @@ export const PokemonName = React.forwardRef<HTMLDivElement, PokemonNameProps>(
         className={cn(pokemonNameVariants(), className)}
         {...props}
       >
-        {/* Avatar */}
         <div className={pokemonNameAvatarVariants()}>
           <Image
             src={image}
@@ -44,7 +43,6 @@ export const PokemonName = React.forwardRef<HTMLDivElement, PokemonNameProps>(
           />
         </div>
 
-        {/* Pokemon name text */}
         <Text
           typography={pokemonNameTypography}
           color={pokemonNameColor}
@@ -54,7 +52,6 @@ export const PokemonName = React.forwardRef<HTMLDivElement, PokemonNameProps>(
           {name}
         </Text>
 
-        {/* Optional pokeball image */}
         {isOwned && (
           <Image
             src={pokeballImage}
