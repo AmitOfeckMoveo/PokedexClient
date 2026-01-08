@@ -216,6 +216,10 @@ export default {
         'icon-size-auto': '1em',  
         'hp-icon-sm': '14px',
         'hp-icon-md': '20px',
+        'image-size-xs': '28px',
+        'image-size-sm': '48px',
+        'image-size-md': '54px',
+        'image-size-lg': '80px',
       },
       height: {
         'icon-size-sm': '1rem',  
@@ -224,6 +228,10 @@ export default {
         'icon-size-auto': '1em',  
         'hp-icon-sm': '14px',
         'hp-icon-md': '20px',
+        'image-size-xs': '28px',
+        'image-size-sm': '48px',
+        'image-size-md': '54px',
+        'image-size-lg': '80px',
       },
       keyframes: {
         "accordion-down": {

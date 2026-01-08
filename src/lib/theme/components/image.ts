@@ -17,9 +17,10 @@ export const imageVariants = cva(
         square: 'rounded-none',
       },
       size: {
-        sm: 'w-12 h-12',
-        md: 'w-[54px] h-[54px]',
-        lg: 'w-20 h-20',
+        xs: 'w-image-size-xs h-image-size-xs',
+        sm: 'w-image-size-sm h-image-size-sm',
+        md: 'w-image-size-md h-image-size-md',
+        lg: 'w-image-size-lg h-image-size-lg',
       },
     },
     defaultVariants: {
