@@ -91,7 +91,7 @@ export default {
           700: "#313336",
         },
         "hp-icon": "#F3F3F3",
-        "pokemon-avatar-bg": "#EBEFF6",
+        "pokemon-avatar-bg": "#EBEFF699",
         extended: {
           purple: {
             DEFAULT: "#A88FEF",

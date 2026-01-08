@@ -9,7 +9,7 @@ export const pokemonNameAvatarVariants = cva(
   cn(
     'w-image-size-md h-image-size-md',
     'rounded-full',
-    'bg-pokemon-avatar-bg',
+    'bg-pokemon-avatar-bg/60',
     'flex items-center justify-center',
     'flex-shrink-0 overflow-hidden'
   )
