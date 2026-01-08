@@ -31,7 +31,7 @@ export const PokemonHP = React.forwardRef<HTMLDivElement, PokemonHPProps>(
           className={cn(pokemonHpVariants({ size }), className)}
           {...props}
         >
-          {showLabel && (
+          {showLabel && size !== 'sm' && (
             <Text typography="caption-bold" color="primary-500" as="span" className="self-end">
               HP
             </Text>
