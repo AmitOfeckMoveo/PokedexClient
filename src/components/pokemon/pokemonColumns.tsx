@@ -13,7 +13,7 @@ export const pokemonColumns: Column<Pokemon>[] = [
   {
     key: 'name',
     header: 'Pokemon name',
-    className: 'w-[300px]',
+    className: 'w-table-name-column-width',
     render: (pokemon) => (
       <PokemonName
         name={pokemon.name.english}
@@ -32,7 +32,7 @@ export const pokemonColumns: Column<Pokemon>[] = [
   {
     key: 'description',
     header: 'Description',
-    className: 'max-w-[450px]',
+    className: 'max-w-table-description-max-width',
     render: (pokemon) => (
       <Text typography="body-regular" color="neutral-700" truncate>
         {pokemon.description}

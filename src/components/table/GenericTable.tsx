@@ -8,6 +8,13 @@ import {
   TableRow,
   TableCell,
 } from '../ui/table';
+import {
+  tableVariants,
+  tableHeaderRowVariants,
+  tableHeaderCellVariants,
+  tableBodyRowVariants,
+  tableBodyCellVariants,
+} from '@/lib/theme/components/table';
 
 export interface Column<T> {
   key: string;
@@ -37,19 +44,19 @@ export function GenericTable<T>({ data, columns, className }: GenericTableProps<
   return (
     <div
       className={cn(
-        'rounded-lg border border-neutral-100 overflow-hidden',
+        tableVariants(),
+        'overflow-x-auto', // Responsive: horizontal scroll on small screens
         className
       )}
     >
-      <Table>
+      <Table className="min-w-full">
         <TableHeader>
-          <TableRow className="h-12 bg-primary-50 hover:bg-primary-50 border-b border-neutral-100">
+          <TableRow className={tableHeaderRowVariants()}>
             {columns.map((column) => (
               <TableHead
                 key={column.key}
                 className={cn(
-                  'align-middle px-4 py-4',
-                  'font-mulish text-[14px] font-bold text-neutral-700 leading-[22px]',
+                  tableHeaderCellVariants(),
                   column.className
                 )}
               >
@@ -62,12 +69,15 @@ export function GenericTable<T>({ data, columns, className }: GenericTableProps<
           {data.map((row, rowIndex) => (
             <TableRow
               key={rowIndex}
-              className="h-[72px] border-b border-neutral-100 hover:bg-neutral-50/50"
+              className={tableBodyRowVariants()}
             >
               {columns.map((column) => (
                 <TableCell
                   key={column.key}
-                  className={cn('align-middle px-4 py-4', column.className)}
+                  className={cn(
+                    tableBodyCellVariants(),
+                    column.className
+                  )}
                 >
                   {column.render(row)}
                 </TableCell>
