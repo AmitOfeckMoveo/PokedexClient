@@ -89,6 +89,7 @@ export default {
           500: "#2D3033",
           600: "#71787F",
           700: "#313336",
+          800: "#1A1C1E",
         },
         "hp-icon": "#F3F3F3",
         "pokemon-avatar-bg": "#EBEFF699",
@@ -203,6 +204,10 @@ export default {
         "table-description-max-width": "450px",
         "table-pagination-height": "44px",
         "table-pagination-padding": "10px",
+        "sort-dropdown-height": "38px",
+        "sort-dropdown-padding-x": "12px",
+        "sort-dropdown-padding-y": "8px",
+        "sort-dropdown-gap": "16px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -220,6 +225,7 @@ export default {
         'input': '2.375rem',
         'table-header-height': '48px',
         'table-row-height': '72px',
+        'sort-dropdown-height': '38px',
       },
       width: {
         'icon-size-sm': '1rem',   
