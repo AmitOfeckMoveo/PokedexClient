@@ -201,6 +201,8 @@ export default {
         "table-cell-padding": "16px",
         "table-name-column-width": "300px",
         "table-description-max-width": "450px",
+        "table-pagination-height": "44px",
+        "table-pagination-padding": "10px",
       },
       borderRadius: {
         lg: "var(--radius)",

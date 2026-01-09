@@ -6,6 +6,10 @@ import {
   PaginationContent,
   PaginationItem,
 } from '../ui/pagination';
+import {
+  tablePaginationVariants,
+  tablePaginationButtonVariants,
+} from '@/lib/theme/components/pagination';
 
 export interface TablePaginationProps {
   page: number; 
@@ -42,15 +46,7 @@ export function TablePagination({
   };
 
   return (
-    <div
-      className={cn(
-        'h-[44px]',
-        'flex items-center justify-between',
-        'px-[10px]',
-        'bg-white',
-        'border-t border-neutral-100'
-      )}
-    >
+    <div className={cn(tablePaginationVariants())}>
       <Pagination>
         <PaginationContent className="w-full justify-between">
           {/* Left side: Rows per page */}
@@ -73,14 +69,7 @@ export function TablePagination({
                 type="button"
                 onClick={handlePrevious}
                 disabled={isFirstPage}
-                className={cn(
-                  'inline-flex items-center justify-center',
-                  'h-auto w-auto p-0',
-                  'transition-colors',
-                  'hover:opacity-70',
-                  'focus-visible:outline-none',
-                  'disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed'
-                )}
+                className={cn(tablePaginationButtonVariants())}
                 aria-label="Go to previous page"
                 aria-disabled={isFirstPage}
               >
@@ -93,14 +82,7 @@ export function TablePagination({
                 type="button"
                 onClick={handleNext}
                 disabled={isLastPage}
-                className={cn(
-                  'inline-flex items-center justify-center',
-                  'h-auto w-auto p-0',
-                  'transition-colors',
-                  'hover:opacity-70',
-                  'focus-visible:outline-none',
-                  'disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed'
-                )}
+                className={cn(tablePaginationButtonVariants())}
                 aria-label="Go to next page"
                 aria-disabled={isLastPage}
               >
