@@ -44,14 +44,16 @@ export const pokemonColumns: Column<Pokemon>[] = [
     header: 'Power level',
     render: (pokemon) => (
       <Text typography="body-bold" color="neutral-700">
-        {pokemon.base.Attack}
+        {pokemon.base?.Attack ?? '-'}
       </Text>
     ),
   },
   {
     key: 'hp',
     header: 'HP',
-    render: (pokemon) => <PokemonHP value={pokemon.base.HP} size="sm" />,
+    render: (pokemon) => (
+      <PokemonHP value={pokemon.base?.HP ?? 0} size="sm" />
+    ),
   },
 ];
 
