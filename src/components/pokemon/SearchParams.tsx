@@ -38,6 +38,7 @@ export function SearchParams({
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           className="w-full [&>input]:pl-search-params-input-padding-left [&>input]:group-hover:text-white [&>input]:group-hover:placeholder:text-neutral-400"
+          // need to control using variants, after mvp
         />
       </div>
 
