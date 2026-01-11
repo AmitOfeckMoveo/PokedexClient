@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import type { PokemonFilters } from '@/types/pokemonFilters';
+import type { PokemonTabValue } from '@/types/pokemonTabs';
 import { PokemonTable } from './PokemonTable';
 import { TablePagination } from '../table/TablePagination';
 import { SearchParams } from './SearchParams';
 import { usePokemonTableData } from '@/hooks/usePokemonTableData';
 
 export interface PokemonTablePageProps {
-  // No props needed - data is fetched internally via hook
+  activeTab: PokemonTabValue;
 }
 
 /**
@@ -15,13 +16,14 @@ export interface PokemonTablePageProps {
  * Manages UI state (search, sort, pagination) and delegates all data processing
  * to usePokemonTableData hook. This component is presentation-only.
  */
-export function PokemonTablePage({}: PokemonTablePageProps) {
+export function PokemonTablePage({ activeTab }: PokemonTablePageProps) {
     
   const [filters, setFilters] = useState<PokemonFilters>({
     search: '',
     sort: 'alphabetically',
     page: 1,
     pageSize: 10,
+    ownership: activeTab,
   });
 
   const setSearch = (value: string) => {
@@ -36,13 +38,17 @@ export function PokemonTablePage({}: PokemonTablePageProps) {
     setFilters((prev) => ({ ...prev, page: value }));
   };
 
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, ownership: activeTab }));
+  }, [activeTab]);
+
   const { data, total, isLoading } = usePokemonTableData(filters);
 
   const totalPages = Math.ceil(total / filters.pageSize);
 
   useEffect(() => {
     setPage(1);
-  }, [filters.search, filters.sort]);
+  }, [filters.search, filters.sort, filters.ownership]);
 
   useEffect(() => {
     if (filters.page > totalPages && totalPages > 0) {

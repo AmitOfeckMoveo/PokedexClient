@@ -16814,7 +16814,7 @@
       "chinese": "暴雪王",
       "french": "Blizzaroi"
     },
-    "type": ["Grass", "Ice"],
+    "type": ["Grass", "Ice", "Flying"],
     "base": {
       "HP": 90,
       "Attack": 92,
