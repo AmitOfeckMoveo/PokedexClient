@@ -24,6 +24,19 @@ export interface UsePokemonTableDataResult {
  *   search: 'char',
  *   sort: 'alphabetically',
  * });
+ * 
+ * // future
+ * const { data, total, isLoading } = useQuery({
+  queryKey: ['pokemon', filters],
+  queryFn: () =>
+    fetchPokemon({
+      page,
+      pageSize,
+      search,
+      sort,
+    }),
+});
+ * 
  */
 export function usePokemonTableData(
   filters: PokemonFilters
