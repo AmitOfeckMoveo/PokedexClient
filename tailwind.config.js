@@ -213,13 +213,24 @@ export default {
         "search-params-gap": "16px",
         "search-params-icon-left": "12px",
         "search-params-input-padding-left": "36px",
-        "search-params-max-width": "448px",
+        "search-params-max-width": "305px",
         "tab-pills-px": "16px",
         "tab-pills-py": "8px",
         "tab-pills-gap": "4px",
         "tab-underline-px": "8px",
         "tab-underline-py": "4px",
         "tab-underline-gap": "8px",
+        "header-height": "79px",
+        "header-px": "32px",
+        "header-content-gap": "32px",
+        "header-logo-height": "55px",
+        "page-container": "1376px",
+        "page-container-px-mobile": "16px",
+        "page-container-px-sm": "24px",
+        "page-container-px-md": "32px",
+        "page-container-px-lg": "48px",
+        "page-container-py-mobile": "24px",
+        "page-container-py": "32px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -243,6 +254,8 @@ export default {
         'table-header-height': '48px',
         'table-row-height': '72px',
         'sort-dropdown-height': '38px',
+        'header-height': '79px',
+        'header-logo-height': '55px',
       },
       width: {
         'icon-size-sm': '1rem',   
@@ -257,6 +270,7 @@ export default {
         'image-size-lg': '80px',
         'table-name-column-width': '300px',
         'table-description-max-width': '450px',
+        'page-container': '1376px',
       },
       height: {
         'icon-size-sm': '1rem',  
@@ -269,6 +283,9 @@ export default {
         'image-size-sm': '48px',
         'image-size-md': '54px',
         'image-size-lg': '80px',
+      },
+      maxWidth: {
+        'page-container': '1376px',
       },
       keyframes: {
         "accordion-down": {
