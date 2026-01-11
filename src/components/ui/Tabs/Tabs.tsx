@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { TabItem } from './TabItem';
-
+import { tabsContainerVariants } from '@/lib/theme/components/tabs';
 
 export type TabItemType<T = string> = {
   label: string;
@@ -33,10 +33,8 @@ export function Tabs<T = string>({
     }
   };
 
-  const gapClass = variant === 'pills' ? 'gap-tab-pills-gap' : 'gap-tab-underline-gap';
-
   return (
-    <div className={cn('inline-flex items-center', gapClass, className)} role="tablist">
+    <div className={cn(tabsContainerVariants({ variant }), className)} role="tablist">
       {items.map((item) => (
         <TabItem
           key={String(item.value)}

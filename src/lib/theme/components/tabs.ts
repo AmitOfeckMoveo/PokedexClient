@@ -1,16 +1,11 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-/**
- * Tab Item Variants
- * Styling for individual tab items
- * - All values from theme tokens
- * - Supports two variants: 'pills' (rounded background) and 'underline' (bottom border)
- */
+
 export const tabItemVariants = cva(
   cn(
     'inline-flex items-center justify-center',
-    'body-regular text-neutral-700',
+    'body-regular',
     'cursor-pointer transition-colors',
     'focus:outline-none',
     'disabled:opacity-50 disabled:cursor-not-allowed'
@@ -41,13 +36,16 @@ export const tabItemVariants = cva(
         variant: 'pills',
         active: true,
         class: cn(
-          'bg-primary-50'
+          'bg-primary-50',
+          'text-primary-300'
         ),
       },
       {
         variant: 'pills',
         active: false,
         class: cn(
+          'bg-white',
+          'text-primary-300',
           'hover:bg-neutral-100'
         ),
       },
@@ -55,7 +53,16 @@ export const tabItemVariants = cva(
         variant: 'underline',
         active: true,
         class: cn(
-          'border-b-black'
+          'border-b-black',
+          'text-neutral-1000'
+        ),
+      },
+      // Underline variant - inactive state
+      {
+        variant: 'underline',
+        active: false,
+        class: cn(
+          'text-neutral-700'
         ),
       },
     ],
@@ -67,3 +74,21 @@ export const tabItemVariants = cva(
 );
 
 export type TabItemVariants = VariantProps<typeof tabItemVariants>;
+
+
+export const tabsContainerVariants = cva(
+  'inline-flex items-center',
+  {
+    variants: {
+      variant: {
+        pills: 'gap-tab-pills-gap',
+        underline: 'gap-tab-underline-gap',
+      },
+    },
+    defaultVariants: {
+      variant: 'pills',
+    },
+  }
+);
+
+export type TabsContainerVariants = VariantProps<typeof tabsContainerVariants>;

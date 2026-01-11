@@ -1,7 +1,6 @@
 import { Text } from '../Text';
 import { tabItemVariants, type TabItemVariants } from '@/lib/theme/components/tabs';
 
-
 interface TabItemProps {
   label: string;
   active: boolean;
@@ -17,13 +16,6 @@ export function TabItem({
   onClick,
   variant = 'pills',
 }: TabItemProps) {
-
-  const textColor = variant === 'pills'
-    ? 'primary-300' 
-    : active
-    ? 'neutral-1000' 
-    : 'neutral-700'; 
-
   return (
     <button
       type="button"
@@ -35,8 +27,8 @@ export function TabItem({
     >
       <Text 
         typography="body-regular" 
-        color={textColor}
         as="span"
+        className="text-inherit"
       >
         {label}
       </Text>
