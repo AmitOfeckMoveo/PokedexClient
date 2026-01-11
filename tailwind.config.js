@@ -213,7 +213,7 @@ export default {
         "search-params-gap": "16px",
         "search-params-icon-left": "12px",
         "search-params-input-padding-left": "36px",
-        "search-params-max-width": "448px",
+        "search-params-max-width": "305px",
         "tab-pills-px": "16px",
         "tab-pills-py": "8px",
         "tab-pills-gap": "4px",
