@@ -1,59 +1,47 @@
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { TabItem } from './TabItem';
 
-/**
- * Tab Item Type
- */
+
 export type TabItemType<T = string> = {
   label: string;
   value: T;
   disabled?: boolean;
 };
 
-/**
- * Tabs Component Props
- */
 export interface TabsProps<T = string> {
   items: TabItemType<T>[];
-  defaultValue: T;
+  value: T;
   onChange?: (value: T) => void;
   variant?: 'pills' | 'underline';
   className?: string;
 }
 
-/**
- * Tabs Component
- * 
- * A simple, uncontrolled tabs component that manages active state internally.
- * Calls onChange when the user selects a different tab.
- */
 export function Tabs<T = string>({
   items,
-  defaultValue,
+  value,
   onChange,
   variant = 'pills',
   className,
 }: TabsProps<T>) {
-  const [activeValue, setActiveValue] = useState<T>(defaultValue);
+  const handleTabClick = (clickedValue: T) => {
 
-  const handleTabClick = (value: T) => {
-    const item = items.find((item) => item.value === value);
+    const item = items.find((item) => item.value === clickedValue);
     if (item?.disabled) return;
     
-    setActiveValue(value);
-    onChange?.(value);
+    if (clickedValue !== value) {
+      onChange?.(clickedValue);
+    }
   };
 
   const gapClass = variant === 'pills' ? 'gap-tab-pills-gap' : 'gap-tab-underline-gap';
 
   return (
     <div className={cn('inline-flex items-center', gapClass, className)} role="tablist">
-      {items.map((item, index) => (
+      {items.map((item) => (
         <TabItem
-          key={index}
+          key={String(item.value)}
           label={item.label}
-          active={item.value === activeValue}
+          active={item.value === value}
           disabled={item.disabled || false}
           onClick={() => handleTabClick(item.value)}
           variant={variant}

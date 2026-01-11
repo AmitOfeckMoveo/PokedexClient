@@ -1,15 +1,7 @@
 import { Text } from '../Text';
 import { tabItemVariants, type TabItemVariants } from '@/lib/theme/components/tabs';
 
-/**
- * TabItem - Internal component for rendering a single tab
- * 
- * Responsibilities:
- * - Active state styling
- * - Disabled state handling
- * - Hover styles
- * - Click interaction
- */
+
 interface TabItemProps {
   label: string;
   active: boolean;
@@ -25,6 +17,13 @@ export function TabItem({
   onClick,
   variant = 'pills',
 }: TabItemProps) {
+
+  const textColor = variant === 'pills'
+    ? 'primary-300' 
+    : active
+    ? 'neutral-1000' 
+    : 'neutral-700'; 
+
   return (
     <button
       type="button"
@@ -36,13 +35,7 @@ export function TabItem({
     >
       <Text 
         typography="body-regular" 
-        color={
-          variant === 'pills'
-            ? 'primary-300'
-            : variant === 'underline' && active
-            ? 'neutral-1000'
-            : 'neutral-700'
-        } 
+        color={textColor}
         as="span"
       >
         {label}

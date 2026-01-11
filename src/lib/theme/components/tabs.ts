@@ -37,7 +37,6 @@ export const tabItemVariants = cva(
       },
     },
     compoundVariants: [
-      // Pills variant - active state
       {
         variant: 'pills',
         active: true,
@@ -45,7 +44,6 @@ export const tabItemVariants = cva(
           'bg-primary-50'
         ),
       },
-      // Pills variant - inactive state
       {
         variant: 'pills',
         active: false,
@@ -53,7 +51,6 @@ export const tabItemVariants = cva(
           'hover:bg-neutral-100'
         ),
       },
-      // Underline variant - active state
       {
         variant: 'underline',
         active: true,
