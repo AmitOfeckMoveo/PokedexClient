@@ -224,6 +224,13 @@ export default {
         "header-px": "32px",
         "header-content-gap": "32px",
         "header-logo-height": "55px",
+        "page-container": "1376px",
+        "page-container-px-mobile": "16px",
+        "page-container-px-sm": "24px",
+        "page-container-px-md": "32px",
+        "page-container-px-lg": "48px",
+        "page-container-py-mobile": "24px",
+        "page-container-py": "32px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -263,6 +270,7 @@ export default {
         'image-size-lg': '80px',
         'table-name-column-width': '300px',
         'table-description-max-width': '450px',
+        'page-container': '1376px',
       },
       height: {
         'icon-size-sm': '1rem',  
@@ -275,6 +283,9 @@ export default {
         'image-size-sm': '48px',
         'image-size-md': '54px',
         'image-size-lg': '80px',
+      },
+      maxWidth: {
+        'page-container': '1376px',
       },
       keyframes: {
         "accordion-down": {
