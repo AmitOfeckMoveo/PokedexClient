@@ -1,10 +1,6 @@
-import type { Pokemon } from './types/pokemon'
-import pokemonData from './mocks/pokemon.json'
 import { PokemonTablePage } from './components/pokemon/PokemonTablePage'
 
 function App() {
-  const allPokemon = pokemonData as Pokemon[]
-
   return (
     <div className="min-h-screen bg-background text-foreground p-8">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -15,7 +11,7 @@ function App() {
 
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Pokemon Table</h2>
-          <PokemonTablePage data={allPokemon} />
+          <PokemonTablePage />
         </div>
       </div>
     </div>
