@@ -220,6 +220,10 @@ export default {
         "tab-underline-px": "8px",
         "tab-underline-py": "4px",
         "tab-underline-gap": "8px",
+        "header-height": "79px",
+        "header-px": "32px",
+        "header-content-gap": "32px",
+        "header-logo-height": "55px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -243,6 +247,8 @@ export default {
         'table-header-height': '48px',
         'table-row-height': '72px',
         'sort-dropdown-height': '38px',
+        'header-height': '79px',
+        'header-logo-height': '55px',
       },
       width: {
         'icon-size-sm': '1rem',   
