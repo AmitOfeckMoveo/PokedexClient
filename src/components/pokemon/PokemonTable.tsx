@@ -4,15 +4,11 @@ import { pokemonColumns } from './pokemonColumns';
 
 export interface PokemonTableProps {
   data: Pokemon[];
+  isLoading?: boolean;
 }
 
-/**
- * PokemonTable - Renders a table of Pokemon using GenericTable
- * 
- * @example
- * <PokemonTable data={pokemonList} />
- */
-export function PokemonTable({ data }: PokemonTableProps) {
-  return <GenericTable data={data} columns={pokemonColumns} />;
+
+export function PokemonTable({ data, isLoading }: PokemonTableProps) {
+  return <GenericTable data={data} columns={pokemonColumns} isLoading={isLoading} />;
 }
 

@@ -15,6 +15,7 @@ import {
   tableBodyRowVariants,
   tableBodyCellVariants,
 } from '@/lib/theme/components/table';
+import { Spinner } from '../ui/Spinner';
 
 export interface Column<T> {
   key: string;
@@ -27,6 +28,7 @@ export interface GenericTableProps<T> {
   data: T[];
   columns: Column<T>[];
   className?: string;
+  isLoading?: boolean;
 }
 
 /**
@@ -40,12 +42,12 @@ export interface GenericTableProps<T> {
  * 
  * <GenericTable data={myData} columns={columns} />
  */
-export function GenericTable<T>({ data, columns, className }: GenericTableProps<T>) {
+export function GenericTable<T>({ data, columns, className, isLoading }: GenericTableProps<T>) {
   return (
     <div
       className={cn(
         tableVariants(),
-        'overflow-x-auto', // Responsive: horizontal scroll on small screens
+        'overflow-x-auto',
         className
       )}
     >
@@ -66,24 +68,40 @@ export function GenericTable<T>({ data, columns, className }: GenericTableProps<
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((row, rowIndex) => (
-            <TableRow
-              key={rowIndex}
-              className={tableBodyRowVariants()}
-            >
-              {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  className={cn(
-                    tableBodyCellVariants(),
-                    column.className
-                  )}
-                >
-                  {column.render(row)}
-                </TableCell>
-              ))}
+          {isLoading ? ( //will be export to component
+            <TableRow>
+              <TableCell
+                colSpan={columns.length}
+                className={cn(
+                  tableBodyCellVariants(),
+                  'text-center py-12'
+                )}
+              >
+                <div className="flex items-center justify-center">
+                  <Spinner size="md" aria-label="Loading data" />
+                </div>
+              </TableCell>
             </TableRow>
-          ))}
+          ) : (
+            data.map((row, rowIndex) => (
+              <TableRow
+                key={rowIndex}
+                className={tableBodyRowVariants()}
+              >
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.key}
+                    className={cn(
+                      tableBodyCellVariants(),
+                      column.className
+                    )}
+                  >
+                    {column.render(row)}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          )}
         </TableBody>
       </Table>
     </div>

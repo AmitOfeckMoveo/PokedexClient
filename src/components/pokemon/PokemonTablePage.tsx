@@ -1,18 +1,22 @@
-import { useState, useMemo, useEffect } from 'react';
-import type { Pokemon } from '@/types/pokemon';
+import { useState, useEffect } from 'react';
 import type { PokemonFilters } from '@/types/pokemonFilters';
 import { PokemonTable } from './PokemonTable';
 import { TablePagination } from '../table/TablePagination';
 import { SearchParams } from './SearchParams';
+import { usePokemonTableData } from '@/hooks/usePokemonTableData';
 
 export interface PokemonTablePageProps {
-  data: Pokemon[];
+  // No props needed - data is fetched internally via hook
 }
 
-export function PokemonTablePage({
-  data,
-}: PokemonTablePageProps) {
-
+/**
+ * PokemonTablePage - Container component for Pokemon table
+ * 
+ * Manages UI state (search, sort, pagination) and delegates all data processing
+ * to usePokemonTableData hook. This component is presentation-only.
+ */
+export function PokemonTablePage({}: PokemonTablePageProps) {
+    
   const [filters, setFilters] = useState<PokemonFilters>({
     search: '',
     sort: 'alphabetically',
@@ -32,47 +36,13 @@ export function PokemonTablePage({
     setFilters((prev) => ({ ...prev, page: value }));
   };
 
+  const { data, total, isLoading } = usePokemonTableData(filters);
 
-  const filteredData = useMemo(() => {
-    if (!filters.search.trim()) {
-      return data;
-    }
-
-    const searchLower = filters.search.toLowerCase();
-    return data.filter((pokemon) => {
-      return pokemon.name.english.toLowerCase().startsWith(searchLower);
-    });
-  }, [data, filters.search]);
-
-
-  const sortedData = useMemo(() => {
-    const sorted = [...filteredData].sort((a, b) => {
-      switch (filters.sort) {
-        case 'alphabetically':
-          return a.name.english.localeCompare(b.name.english);
-        case 'hp-level':
-          return (b.base?.HP ?? 0) - (a.base?.HP ?? 0); 
-        case 'power-level':
-          return (b.base?.Attack ?? 0) - (a.base?.Attack ?? 0); 
-        default:
-          return 0;
-      }
-    });
-    return sorted;
-  }, [filteredData, filters.sort]);
+  const totalPages = Math.ceil(total / filters.pageSize);
 
   useEffect(() => {
     setPage(1);
   }, [filters.search, filters.sort]);
-
-  const total = sortedData.length;
-  const totalPages = Math.ceil(total / filters.pageSize);
-
-
-  const paginatedData = useMemo(() => {
-    const startIndex = (filters.page - 1) * filters.pageSize;
-    return sortedData.slice(startIndex, startIndex + filters.pageSize);
-  }, [sortedData, filters.page, filters.pageSize]);
 
   useEffect(() => {
     if (filters.page > totalPages && totalPages > 0) {
@@ -90,7 +60,7 @@ export function PokemonTablePage({
       />
 
       <div className="space-y-0">
-        <PokemonTable data={paginatedData} />
+        <PokemonTable data={data} isLoading={isLoading} />
 
         <TablePagination
           page={filters.page}
