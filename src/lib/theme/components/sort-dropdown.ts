@@ -9,7 +9,7 @@ export const sortDropdownTriggerVariants = cva(
     'py-sort-dropdown-padding-y',
     'rounded-lg',
     'border border-neutral-200',
-    'bg-white',
+    'bg-transparent',
     'flex items-center',
     'gap-sort-dropdown-gap',
     'transition-colors',

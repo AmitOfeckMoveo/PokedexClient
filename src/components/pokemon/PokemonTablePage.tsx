@@ -5,6 +5,8 @@ import { PokemonTable } from './PokemonTable';
 import { TablePagination } from '../table/TablePagination';
 import { SearchParams } from './SearchParams';
 import { usePokemonTableData } from '@/hooks/usePokemonTableData';
+import { Text } from '../ui/Text';
+import { POKEMON_TAB_ITEMS } from '@/types/pokemonTabs';
 
 export interface PokemonTablePageProps {
   activeTab: PokemonTabValue;
@@ -56,8 +58,20 @@ export function PokemonTablePage({ activeTab }: PokemonTablePageProps) {
     }
   }, [filters.page, totalPages]);
 
+  // Get the title label based on active tab
+  const titleLabel = POKEMON_TAB_ITEMS.find(item => item.value === activeTab)?.label || 'All Pokémons';
+
   return (
     <div className="space-y-4">
+      {/* Page Title */}
+      <Text 
+        typography="heading-large-medium" 
+        color="neutral-400"
+        as="h1"
+      >
+        {titleLabel}
+      </Text>
+
       <SearchParams
         search={filters.search}
         onSearchChange={setSearch}

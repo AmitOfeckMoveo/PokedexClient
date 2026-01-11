@@ -25,7 +25,7 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
       >
         <Text 
           typography="body-regular" 
-          color="neutral-400" 
+          color="neutral-800" 
           as="span"
           className="group-hover:text-white transition-colors"
         >
