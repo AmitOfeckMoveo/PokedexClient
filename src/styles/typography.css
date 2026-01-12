@@ -37,5 +37,8 @@
   .button-big             { @apply font-mulish text-button-big font-normal; }
   .button-medium          { @apply font-mulish text-button-big font-normal; }
   .button-small           { @apply font-mulish text-button-small font-normal; }
+
+  /* Indicator (for +X labels) */
+  .indicator-medium       { @apply font-mulish text-indicator font-medium; }
 }
 
