@@ -91,6 +91,7 @@ export default {
           700: "#313336",
         },
         "hp-icon": "#F3F3F3",
+        "pokemon-avatar-bg": "#EBEFF699",
         extended: {
           purple: {
             DEFAULT: "#A88FEF",
@@ -193,6 +194,8 @@ export default {
         "hp-badge-px-md": "4px",
         "hp-badge-gap-sm": "4px",
         "hp-badge-gap-md": "4px",
+        "pokemon-name-gap-text": "16px",
+        "pokemon-name-gap-icon": "8px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -216,6 +219,10 @@ export default {
         'icon-size-auto': '1em',  
         'hp-icon-sm': '14px',
         'hp-icon-md': '20px',
+        'image-size-xs': '28px',
+        'image-size-sm': '48px',
+        'image-size-md': '54px',
+        'image-size-lg': '80px',
       },
       height: {
         'icon-size-sm': '1rem',  
@@ -224,6 +231,10 @@ export default {
         'icon-size-auto': '1em',  
         'hp-icon-sm': '14px',
         'hp-icon-md': '20px',
+        'image-size-xs': '28px',
+        'image-size-sm': '48px',
+        'image-size-md': '54px',
+        'image-size-lg': '80px',
       },
       keyframes: {
         "accordion-down": {
