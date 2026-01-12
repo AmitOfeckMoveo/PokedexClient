@@ -8,6 +8,7 @@ import Cards from './cards.svg?react';
 import Check from './check.svg?react';
 import Search from './search.svg?react';
 import X from './x.svg?react';
+import ElectricBolt from './electric-bolt.svg?react';
 
 export const iconRegistry = {
   calendar: Calendar,
@@ -18,6 +19,7 @@ export const iconRegistry = {
   check: Check,
   search: Search,
   x: X,
+  'electric-bolt': ElectricBolt,
 } as const satisfies Record<string, ComponentType<SVGProps<SVGSVGElement>>>;
 
 export type IconName = keyof typeof iconRegistry;
