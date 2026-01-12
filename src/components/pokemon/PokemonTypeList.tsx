@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { PokemonTypeLabel } from '@/components/pokemon/PokemonTypeLabel';
+import { PokemonRemainingLabel } from '@/components/pokemon/PokemonRemainingLabel';
 import { pokemonTypeListVariants } from '@/lib/theme/components/pokemon/typeList';
 import type { PokemonType } from '@/types/pokemon';
 
@@ -11,11 +12,9 @@ export interface PokemonTypeListProps {
   className?: string;
 }
 
-/**
- */
 export const PokemonTypeList = React.forwardRef<HTMLDivElement, PokemonTypeListProps>(
   ({ types, size = 'md', maxVisible, className, ...props }, ref) => {
-    // If maxVisible is not provided, show all types
+    
     const shouldShowAll = maxVisible === undefined;
     const visibleTypes = shouldShowAll ? types : types.slice(0, maxVisible);
     const remainingCount = shouldShowAll ? 0 : types.length - maxVisible;
@@ -37,9 +36,7 @@ export const PokemonTypeList = React.forwardRef<HTMLDivElement, PokemonTypeListP
           />
         ))}
         {remainingCount > 0 && (
-          <PokemonTypeLabel
-            key="remaining"
-            type="remaining"
+          <PokemonRemainingLabel
             count={remainingCount}
             size={size}
           />

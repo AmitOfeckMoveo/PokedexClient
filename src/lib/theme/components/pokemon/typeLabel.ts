@@ -50,9 +50,10 @@ export const remainingIndicatorTypography = 'indicator-medium';
 
 /**
  * Pokemon Type Class Map
- * Maps PokemonType (and 'remaining') to Tailwind design token classes
+ * Maps PokemonType to Tailwind design token classes
+ * Only contains real Pokémon types - no UI-only indicators
  */
-export const pokemonTypeClassMap: Record<PokemonType | 'remaining', string> = {
+export const pokemonTypeClassMap: Record<PokemonType, string> = {
   Normal: 'bg-gray-50 text-gray-500 border-neutral-200',
   Water: 'bg-blue-50 text-blue-500 border-neutral-200',
   Fire: 'bg-red-50 text-red-500 border-neutral-200',
@@ -71,6 +72,13 @@ export const pokemonTypeClassMap: Record<PokemonType | 'remaining', string> = {
   Steel: 'bg-gray-100 text-purple-800 border-neutral-200',
   Dark: 'bg-gray-200 text-gray-600 border-neutral-200',
   Fairy: 'bg-pink-100 text-pink-600 border-neutral-200',
-  remaining: 'bg-neutrals-50 text-neutrals-500 border-neutral-200',
 };
+
+/**
+ * Remaining Indicator Style
+ * UI-only style for the "+N" indicator
+ * Shares the same visual layout (padding, border, radius) as PokemonTypeLabel
+ * but uses neutral colors to distinguish it from real Pokémon types
+ */
+export const remainingIndicatorStyle = 'bg-neutral-50 text-neutral-500 border-neutral-200';
 
