@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import {
-  Table,
+  Table as TablePrimitive,
   TableHeader,
   TableHead,
   TableBody,
@@ -23,14 +23,16 @@ export interface Column<T> {
   className?: string;
 }
 
-export interface GenericTableProps<T> {
+export interface TableProps<T> {
   data: T[];
   columns: Column<T>[];
   className?: string;
 }
 
 /**
- * GenericTable - A reusable table component that doesn't know about specific data types
+ * Table - A reusable table component that doesn't know about specific data types
+ * 
+ * Uses shadcn/ui table primitives internally for consistent styling and behavior.
  * 
  * @example
  * const columns: Column<MyType>[] = [
@@ -38,9 +40,9 @@ export interface GenericTableProps<T> {
  *   { key: 'value', header: 'Value', render: (row) => row.value },
  * ];
  * 
- * <GenericTable data={myData} columns={columns} />
+ * <Table data={myData} columns={columns} />
  */
-export function GenericTable<T>({ data, columns, className }: GenericTableProps<T>) {
+export function Table<T>({ data, columns, className }: TableProps<T>) {
   return (
     <div
       className={cn(
@@ -49,7 +51,7 @@ export function GenericTable<T>({ data, columns, className }: GenericTableProps<
         className
       )}
     >
-      <Table className="min-w-full">
+      <TablePrimitive className="min-w-full">
         <TableHeader>
           <TableRow className={tableHeaderRowVariants()}>
             {columns.map((column) => (
@@ -85,7 +87,7 @@ export function GenericTable<T>({ data, columns, className }: GenericTableProps<
             </TableRow>
           ))}
         </TableBody>
-      </Table>
+      </TablePrimitive>
     </div>
   );
 }
