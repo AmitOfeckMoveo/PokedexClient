@@ -1,4 +1,4 @@
-import { type Column } from '../table/GenericTable';
+import { type Column } from '../table/Table';
 import type { Pokemon } from '@/types/pokemon';
 import { PokemonName } from './PokemonName';
 import { PokemonTypeList } from './PokemonTypeList';
@@ -18,7 +18,7 @@ export const pokemonColumns: Column<Pokemon>[] = [
       <PokemonName
         name={pokemon.name.english}
         image={pokemon.image.thumbnail}
-        isOwned={pokemon.id === 2 || pokemon.id === 4} // Example: show pokeball for Charmander and Ivysaur
+        isOwned={pokemon.id % 4 === 0} // Example: show pokeball for Charmander and Ivysaur
       />
     ),
   },
@@ -51,9 +51,7 @@ export const pokemonColumns: Column<Pokemon>[] = [
   {
     key: 'hp',
     header: 'HP',
-    render: (pokemon) => (
-      <PokemonHP value={pokemon.base?.HP ?? 0} size="sm" />
-    ),
+    render: (pokemon) => <PokemonHP value={pokemon.base?.HP ?? 0} size="sm" />,
   },
 ];
 

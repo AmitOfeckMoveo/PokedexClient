@@ -29,7 +29,7 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
           as="span"
           className="group-hover:text-white transition-colors"
         >
-          Sort By {getSortLabel(value)}
+          Sort By
         </Text>
         <Icon 
           name="chevron-up" 

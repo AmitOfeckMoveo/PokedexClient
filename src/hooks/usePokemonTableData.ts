@@ -1,60 +1,46 @@
 import { useMemo } from 'react';
 import type { Pokemon } from '@/types/pokemon';
-import type { PokemonFilters } from '@/types/pokemonFilters';
 import pokemonData from '@/mocks/pokemon.json';
 
+export interface UsePokemonTableDataParams {
+  search?: string;
+  sort?: 'alphabetically' | 'hp-level' | 'power-level';
+  ownership?: 'all' | 'mine';
+}
+
 export interface UsePokemonTableDataResult {
-  data: Pokemon[];
+  data: Pokemon[]; 
   total: number;
   isLoading: boolean;
 }
 
-/**
- * usePokemonTableData - Data layer hook for Pokemon table
- * 
- * Extends the pagination PR hook by adding search and sort functionality.
- * This hook is the single source of truth for all data processing.
- * 
- * Data flow: filter → sort → paginate
- * 
- * @example
- * const { data, total, isLoading } = usePokemonTableData({
- *   page: 1,
- *   pageSize: 10,
- *   search: 'char',
- *   sort: 'alphabetically',
- * });
- * 
- * // future
- * const { data, total, isLoading } = useQuery({
-  queryKey: ['pokemon', filters],
-  queryFn: () =>
-    fetchPokemon({
-      page,
-      pageSize,
-      search,
-      sort,
-    }),
-});
- * 
- */
-export function usePokemonTableData(
-  filters: PokemonFilters
-): UsePokemonTableDataResult {
-  const { page, pageSize, search, sort } = filters;
 
+export function usePokemonTableData({
+  search,
+  sort,
+  ownership = 'all',
+}: UsePokemonTableDataParams): UsePokemonTableDataResult {
   const allPokemon = pokemonData as Pokemon[];
 
-  const filteredData = useMemo(() => {
-    if (!search.trim()) {
-      return allPokemon;
+  
+  const ownershipFilteredData = useMemo(() => {
+    if (ownership === 'mine') {
+      return allPokemon.filter((pokemon) => pokemon.id % 4 === 0);
     }
+    return allPokemon;
+  }, [allPokemon, ownership]);
 
+
+  const filteredData = useMemo(() => {
+    if (!search?.trim()) {
+      return ownershipFilteredData;
+    }
     const searchLower = search.toLowerCase();
-    return allPokemon.filter((pokemon) => {
+    return ownershipFilteredData.filter((pokemon) => {
       return pokemon.name.english.toLowerCase().startsWith(searchLower);
     });
-  }, [allPokemon, search]);
+  }, [ownershipFilteredData, search]);
+
 
   const sortedData = useMemo(() => {
     const sorted = [...filteredData].sort((a, b) => {
@@ -62,9 +48,9 @@ export function usePokemonTableData(
         case 'alphabetically':
           return a.name.english.localeCompare(b.name.english);
         case 'hp-level':
-          return (b.base?.HP ?? 0) - (a.base?.HP ?? 0); 
+          return (b.base?.HP ?? 0) - (a.base?.HP ?? 0);
         case 'power-level':
-          return (b.base?.Attack ?? 0) - (a.base?.Attack ?? 0); 
+          return (b.base?.Attack ?? 0) - (a.base?.Attack ?? 0);
         default:
           return 0;
       }
@@ -72,14 +58,10 @@ export function usePokemonTableData(
     return sorted;
   }, [filteredData, sort]);
 
-  const paginatedData = useMemo(() => {
-    const startIndex = (page - 1) * pageSize;
-    return sortedData.slice(startIndex, startIndex + pageSize);
-  }, [sortedData, page, pageSize]);
-
   return {
-    data: paginatedData,
-    total: sortedData.length, 
-    isLoading: false, 
+    data: sortedData, 
+    total: sortedData.length,
+    isLoading: false,
   };
 }
+
