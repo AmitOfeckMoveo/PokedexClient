@@ -1,4 +1,4 @@
-import { GenericTable } from '../table/GenericTable';
+import { Table } from '../table/Table';
 import type { Pokemon } from '@/types/pokemon';
 import { pokemonColumns } from './pokemonColumns';
 
@@ -8,12 +8,12 @@ export interface PokemonTableProps {
 }
 
 /**
- * PokemonTable - Renders a table of Pokemon using GenericTable
+ * PokemonTable - Renders a table of Pokemon using Table
  * 
  * @example
  * <PokemonTable data={pokemonList} isLoading={false} />
  */
 export function PokemonTable({ data, isLoading }: PokemonTableProps) {
-  return <GenericTable data={data} columns={pokemonColumns} isLoading={isLoading} />;
+  return <Table data={data} columns={pokemonColumns} isLoading={isLoading} />;
 }
 

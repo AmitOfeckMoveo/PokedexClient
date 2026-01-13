@@ -1,4 +1,4 @@
-import { type Column } from '../table/GenericTable';
+import { type Column } from '../table/Table';
 import type { Pokemon } from '@/types/pokemon';
 import { PokemonName } from './PokemonName';
 import { PokemonTypeList } from './PokemonTypeList';
