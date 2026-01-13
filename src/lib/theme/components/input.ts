@@ -26,6 +26,7 @@ export const inputVariants = cva(
       state: {
         default: cn(
           'border-neutral-200 bg-transparent',
+          'hover:border-neutral-600',
           'focus:border-neutral-500 focus:bg-transparent',
           'focus-within:bg-transparent'
         ),
