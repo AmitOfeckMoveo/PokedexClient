@@ -208,6 +208,11 @@ export default {
         "sort-dropdown-padding-x": "12px",
         "sort-dropdown-padding-y": "8px",
         "sort-dropdown-gap": "16px",
+        "search-params-height": "38px",
+        "search-params-gap": "16px",
+        "search-params-icon-left": "12px",
+        "search-params-input-padding-left": "36px",
+        "search-params-max-width": "448px",
       },
       borderRadius: {
         lg: "var(--radius)",
