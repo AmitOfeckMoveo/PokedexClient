@@ -18,7 +18,7 @@ export const pokemonColumns: Column<Pokemon>[] = [
       <PokemonName
         name={pokemon.name.english}
         image={pokemon.image.thumbnail}
-        isOwned={pokemon.id === 2 || pokemon.id === 4} // Example: show pokeball for Charmander and Ivysaur
+        isOwned={pokemon.id %4 === 0} // Example: show pokeball for Charmander and Ivysaur
       />
     ),
   },

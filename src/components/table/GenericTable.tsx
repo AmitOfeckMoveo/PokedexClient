@@ -51,7 +51,7 @@ export function GenericTable<T>({ data, columns, className, isLoading }: Generic
         className
       )}
     >
-      <Table className="min-w-full">
+      <Table className="min-w-full table-fixed">
         <TableHeader>
           <TableRow className={tableHeaderRowVariants()}>
             {columns.map((column) => (

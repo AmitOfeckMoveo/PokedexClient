@@ -12,10 +12,10 @@ export interface UsePokemonTableDataResult {
 /**
  * usePokemonTableData - Data layer hook for Pokemon table
  * 
- * Extends the pagination PR hook by adding search and sort functionality.
+ * Extends the pagination PR hook by adding search, sort, and ownership filtering.
  * This hook is the single source of truth for all data processing.
  * 
- * Data flow: filter → sort → paginate
+ * Data flow: ownership filter → search → sort → paginate
  * 
  * @example
  * const { data, total, isLoading } = usePokemonTableData({
@@ -23,6 +23,7 @@ export interface UsePokemonTableDataResult {
  *   pageSize: 10,
  *   search: 'char',
  *   sort: 'alphabetically',
+ *   ownership: 'all',
  * });
  * 
  * // future
@@ -34,6 +35,7 @@ export interface UsePokemonTableDataResult {
       pageSize,
       search,
       sort,
+      ownership,
     }),
 });
  * 
@@ -41,20 +43,27 @@ export interface UsePokemonTableDataResult {
 export function usePokemonTableData(
   filters: PokemonFilters
 ): UsePokemonTableDataResult {
-  const { page, pageSize, search, sort } = filters;
+  const { page, pageSize, search, sort, ownership = 'all' } = filters;
 
   const allPokemon = pokemonData as Pokemon[];
 
+  const ownershipFilteredData = useMemo(() => {
+    if (ownership === 'mine') {
+      return allPokemon.filter((pokemon) => pokemon.id % 4 === 0);
+    }
+    return allPokemon;
+  }, [allPokemon, ownership]);
+
   const filteredData = useMemo(() => {
     if (!search.trim()) {
-      return allPokemon;
+      return ownershipFilteredData;
     }
 
     const searchLower = search.toLowerCase();
-    return allPokemon.filter((pokemon) => {
+    return ownershipFilteredData.filter((pokemon) => {
       return pokemon.name.english.toLowerCase().startsWith(searchLower);
     });
-  }, [allPokemon, search]);
+  }, [ownershipFilteredData, search]);
 
   const sortedData = useMemo(() => {
     const sorted = [...filteredData].sort((a, b) => {
