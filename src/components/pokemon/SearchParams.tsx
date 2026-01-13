@@ -29,7 +29,7 @@ export function SearchParams({
           <Icon 
             name="search" 
             size="sm" 
-            className="text-neutral-600 group-hover:text-white transition-colors" 
+            className="text-neutral-600" 
           />
         </div>
         <Input
@@ -37,7 +37,7 @@ export function SearchParams({
           placeholder="Search Pokemon"
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full [&>input]:pl-search-params-input-padding-left [&>input]:group-hover:text-white [&>input]:group-hover:placeholder:text-neutral-400"
+          className="w-full [&>input]:pl-search-params-input-padding-left"
           // need to control using variants, after mvp
         />
       </div>

@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
 } from '../ui/dropdown-menu';
 import { sortDropdownTriggerVariants } from '@/lib/theme/components/sort-dropdown';
-import { SORT_OPTIONS, getSortLabel, type SortOption } from '@/types/sort';
+import { SORT_OPTIONS, type SortOption } from '@/types/sort';
 
 export interface SortDropdownProps {
   value: SortOption;
@@ -25,16 +25,15 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
       >
         <Text 
           typography="body-regular" 
-          color="neutral-400" 
+          color="neutral-800" 
           as="span"
-          className="group-hover:text-white transition-colors"
         >
           Sort By
         </Text>
         <Icon 
           name="chevron-up" 
           size="sm" 
-          className="text-neutral-600 group-hover:text-white transition-colors" 
+          className="text-neutral-600" 
         />
       </DropdownMenuTrigger>
       
