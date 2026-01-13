@@ -53,7 +53,7 @@ export const tableBodyRowVariants = cva(
   cn(
     'h-table-row-height',
     'border-b border-neutral-100',
-    'hover:bg-neutral-50/50',
+    'hover:bg-neutral-100',
     'transition-colors'
   )
 );

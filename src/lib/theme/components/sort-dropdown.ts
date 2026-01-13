@@ -14,6 +14,7 @@ export const sortDropdownTriggerVariants = cva(
     'gap-sort-dropdown-gap',
     'transition-colors',
     'hover:border-neutral-600',
+    'hover:bg-neutral-100',
     'focus:outline-none focus:border-neutral-200',
     'active:border-neutral-200',
     'focus-visible:outline-none'
