@@ -1,54 +1,67 @@
 import { useMemo } from 'react';
 import type { Pokemon } from '@/types/pokemon';
-import type { SortOption } from '@/types/sort';
 import pokemonData from '@/mocks/pokemon.json';
 
 export interface UsePokemonTableDataParams {
-  page: number;
-  pageSize: number;
   search?: string;
-  sort?: SortOption;
+  sort?: 'alphabetically' | 'hp-level' | 'power-level';
+  ownership?: 'all' | 'mine';
 }
 
 export interface UsePokemonTableDataResult {
-  data: Pokemon[];
+  data: Pokemon[]; 
   total: number;
   isLoading: boolean;
 }
 
-/**
- * usePokemonTableData - Data layer hook for Pokemon table
- * 
- * This hook abstracts the data source (currently mock data, will be replaced with API calls).
- * It handles pagination logic and prepares the structure for future search/sort implementation.
- * 
- * @example
- * const { data, total, isLoading } = usePokemonTableData({
- *   page: 1,
- *   pageSize: 10,
- * });
- * 
- */
+
 export function usePokemonTableData({
-  page,
-  pageSize,
   search,
   sort,
+  ownership = 'all',
 }: UsePokemonTableDataParams): UsePokemonTableDataResult {
-
   const allPokemon = pokemonData as Pokemon[];
 
-  const processedData = allPokemon;
+  
+  const ownershipFilteredData = useMemo(() => {
+    if (ownership === 'mine') {
+      return allPokemon.filter((pokemon) => pokemon.id % 4 === 0);
+    }
+    return allPokemon;
+  }, [allPokemon, ownership]);
 
-  const paginatedData = useMemo(() => {
-    const startIndex = (page - 1) * pageSize;
-    return processedData.slice(startIndex, startIndex + pageSize);
-  }, [processedData, page, pageSize]);
+
+  const filteredData = useMemo(() => {
+    if (!search?.trim()) {
+      return ownershipFilteredData;
+    }
+    const searchLower = search.toLowerCase();
+    return ownershipFilteredData.filter((pokemon) => {
+      return pokemon.name.english.toLowerCase().startsWith(searchLower);
+    });
+  }, [ownershipFilteredData, search]);
+
+
+  const sortedData = useMemo(() => {
+    const sorted = [...filteredData].sort((a, b) => {
+      switch (sort) {
+        case 'alphabetically':
+          return a.name.english.localeCompare(b.name.english);
+        case 'hp-level':
+          return (b.base?.HP ?? 0) - (a.base?.HP ?? 0);
+        case 'power-level':
+          return (b.base?.Attack ?? 0) - (a.base?.Attack ?? 0);
+        default:
+          return 0;
+      }
+    });
+    return sorted;
+  }, [filteredData, sort]);
 
   return {
-    data: paginatedData,
-    total: processedData.length,
-    isLoading: false, 
+    data: sortedData, 
+    total: sortedData.length,
+    isLoading: false,
   };
 }
 

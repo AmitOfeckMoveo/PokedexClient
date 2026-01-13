@@ -5,6 +5,12 @@ import { pokemonColumns } from './pokemonColumns';
 export interface PokemonTableProps {
   data: Pokemon[];
   isLoading?: boolean;
+  pagination?: {
+    enabled: boolean;
+    pageSize?: number;
+    page?: number;
+    onPageChange?: (page: number) => void;
+  };
 }
 
 /**
@@ -13,7 +19,14 @@ export interface PokemonTableProps {
  * @example
  * <PokemonTable data={pokemonList} isLoading={false} />
  */
-export function PokemonTable({ data, isLoading }: PokemonTableProps) {
-  return <Table data={data} columns={pokemonColumns} isLoading={isLoading} />;
+export function PokemonTable({ data, isLoading, pagination }: PokemonTableProps) {
+  return (
+    <Table 
+      data={data} 
+      columns={pokemonColumns} 
+      isLoading={isLoading}
+      pagination={pagination}
+    />
+  );
 }
 

@@ -16,6 +16,8 @@ import {
   tableBodyCellVariants,
 } from '@/lib/theme/components/table';
 import { Spinner } from '../ui/Spinner';
+import { TablePagination } from './TablePagination';
+import { useTable } from '@/hooks/useTable';
 
 export interface Column<T> {
   key: string;
@@ -29,75 +31,94 @@ export interface TableProps<T> {
   columns: Column<T>[];
   className?: string;
   isLoading?: boolean;
+  pagination?: {
+    enabled: boolean;
+    pageSize?: number;
+    page?: number; // Controlled mode
+    onPageChange?: (page: number) => void; // Controlled mode
+  };
 }
 
-/**
- * Table - A reusable table component that doesn't know about specific data types
- *
- * Uses shadcn/ui table primitives internally for consistent styling and behavior.
- */
-export function Table<T>({ data, columns, className, isLoading }: TableProps<T>) {
+
+export function Table<T>({ data, columns, className, isLoading, pagination }: TableProps<T>) {
+  const { paginatedData, total, page, pageSize, setPage } = useTable({
+    data,
+    pagination,
+  });
+
   return (
-    <div
-      className={cn(
-        tableVariants(),
-        'overflow-x-auto', // Responsive: horizontal scroll on small screens
-        className
-      )}
-    >
-      <TablePrimitive className="min-w-full">
-        <TableHeader>
-          <TableRow className={tableHeaderRowVariants()}>
-            {columns.map((column) => (
-              <TableHead
-                key={column.key}
-                className={cn(
-                  tableHeaderCellVariants(),
-                  column.className
-                )}
-              >
-                {column.header}
-              </TableHead>
-            ))}
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {isLoading ? (
-            <TableRow>
-              <TableCell
-                colSpan={columns.length}
-                className={cn(
-                  tableBodyCellVariants(),
-                  'text-center py-12'
-                )}
-              >
-                <div className="flex items-center justify-center">
-                  <Spinner size="md" aria-label="Loading data" />
-                </div>
-              </TableCell>
+    <div className="space-y-0">
+      <div
+        className={cn(
+          tableVariants(),
+          'overflow-x-auto', 
+          className
+        )}
+      >
+        <TablePrimitive className="min-w-full">
+          <TableHeader>
+            <TableRow className={tableHeaderRowVariants()}>
+              {columns.map((column) => (
+                <TableHead
+                  key={column.key}
+                  className={cn(
+                    tableHeaderCellVariants(),
+                    column.className
+                  )}
+                >
+                  {column.header}
+                </TableHead>
+              ))}
             </TableRow>
-          ) : (
-            data.map((row, rowIndex) => (
-              <TableRow
-                key={rowIndex}
-                className={tableBodyRowVariants()}
-              >
-                {columns.map((column) => (
-                  <TableCell
-                    key={column.key}
-                    className={cn(
-                      tableBodyCellVariants(),
-                      column.className
-                    )}
-                  >
-                    {column.render(row)}
-                  </TableCell>
-                ))}
+          </TableHeader>
+          <TableBody>
+            {isLoading ? (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className={cn(
+                    tableBodyCellVariants(),
+                    'text-center py-12'
+                  )}
+                >
+                  <div className="flex items-center justify-center">
+                    <Spinner size="md" aria-label="Loading data" />
+                  </div>
+                </TableCell>
               </TableRow>
-            ))
-          )}
-        </TableBody>
-      </TablePrimitive>
+            ) : (
+              paginatedData.map((row, rowIndex) => (
+                <TableRow
+                  key={rowIndex}
+                  className={tableBodyRowVariants()}
+                >
+                  {columns.map((column) => (
+                    <TableCell
+                      key={column.key}
+                      className={cn(
+                        tableBodyCellVariants(),
+                        column.className
+                      )}
+                    >
+                      {column.render(row)}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            )}
+          </TableBody>
+        </TablePrimitive>
+      </div>
+      
+      {/* Render pagination only when enabled */}
+      {pagination?.enabled && !isLoading && (
+        <TablePagination
+          page={page}
+          pageSize={pageSize}
+          total={total}
+          onPageChange={setPage}
+        />
+      )}
     </div>
   );
 }
